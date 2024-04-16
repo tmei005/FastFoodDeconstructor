@@ -1,3 +1,4 @@
+import string
 class Node:
     def __init__(self, name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
                  trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein):
@@ -16,3 +17,4 @@ class Node:
         self.dietary_fiber = dietary_fiber
         self.sugar = sugar
         self.protein = protein
+        self.next = None
