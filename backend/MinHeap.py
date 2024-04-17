@@ -7,7 +7,7 @@ class MinHeap:
         self.heap = []
         self.sorted_by = sorted_by
 
-        # this is for all items but we can edit & change parameters later
+        # this is for all items but we can edit & change parameters as needed
         def importItems(self):
             # Read the Excel file
             df = pd.read_excel(self.dataset_name)
