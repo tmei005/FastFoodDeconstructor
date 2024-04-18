@@ -1,22 +1,29 @@
-import MinHeap
+# import MinHeap
+# import RestaurantMap
+import Node
+import HashMapClass
 import pandas as pd
 import sys
 
 if __name__ == "__main__":
-    dataset_name = "ms_annual_data_2022.xlsx"
-    # create a map with all restaurant names as the key and
-    # a minHeap of its menu items as the value
-    restaurants = {}
-    restaurant_index = {}
-    df = pd.read_excel(dataset_name)
-    rest_name = ""
-    #iterate through excel sheet to add restaurants
-    for index, row in df.iterrows():
-        # if restaurant already added, add that item to its heap
-        if row['Restaurant'] in restaurants:
-            # INSERT ITEM TO EXISTING MINHEAP AT THIS INDEX
+    # Create a sample hashmap
+    hashmap = HashMapClass.HashMap(2)
 
-        # if not already in set, add the restaurant and set value to none
-        else:
-            rest_name = row['Restaurant']
-            # INSERT ITEM TO MINHEAP AT INDEX rest_name
+    # Create some sample nodes
+    node1 = Node.MenuItem("Burger", "Main Course", "Restaurant A")
+    node2 = Node.MenuItem("Taco", "Dessert", "Restaurant B")
+
+    # Insert nodes into the hashmap
+    hashmap.insert(node1)
+    hashmap.insert(node2)
+
+    # Retrieve and print some attributes of the inserted nodes for testing
+    print("Retrieved node 1:")
+    print("Name:", node1.name)
+    print("Category:", node1.category)
+    print("Restaurant:", node1.restaurant)
+
+    print("\nRetrieved node 2:")
+    print("Name:", node2.name)
+    print("Category:", node2.category)
+    print("Restaurant:", node2.restaurant)
