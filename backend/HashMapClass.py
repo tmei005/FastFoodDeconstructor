@@ -53,3 +53,4 @@ class HashMap:
             current.next = menu_item
             self.size += 1
 
+    #write a search/retreival function
