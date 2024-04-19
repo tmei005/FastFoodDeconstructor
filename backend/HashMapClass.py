@@ -8,13 +8,23 @@ class HashMap:
         self.size = 0
         self.load_factor = .75
         self.map = [None] * self.capacity
+        self.restaurant_categories = {}
 
+    # function to create a map where restaurant is the key and values is a set of categories of food that restaurant offers
+    def insert_restaurant_category(self, restaurant, category):
+        if restaurant in self.restaurant_categories:
+            self.restaurant_categories[restaurant].add(category)
+        else:
+            self.restaurant_categories[restaurant] = {category}
+
+    # function to get hash value using ASCII sum of  restaurant name and category
     def _hash(self, menu_item):
         category = str(menu_item.category)
         restaurant = str(menu_item.restaurant)
         ascii_sum = sum(ord(c) for c in category) + sum(ord(c) for c in restaurant)
         return ascii_sum % self.capacity
 
+    # If load factor > 0.75 then rehash
     def _rehash(self):
         # Double the capacity
         new_capacity = self.capacity * 2
@@ -36,27 +46,28 @@ class HashMap:
                     temp.next = current
                 current = current.next
 
-        # Update hashmap properties
+        # Update hashmap values
         self.map = new_map
         self.capacity = new_capacity
         self.size = new_size
 
+    # Function to insert a menu item into the hash map
     def insert(self, menu_item):
         # check load factor
         if self.size / self.capacity >= self.load_factor:
             self._rehash()
-
-        index = self._hash(menu_item)
+        index = self._hash(menu_item) # get hash value for index
+        # Add menu item to map
         if self.map[index] is None:
             self.map[index] = menu_item
             self.size += 1
-        else:
+        else: # If there is already a menu item at that index, append it to the linked list
             current = self.map[index]
             while current.next is not None:
                 current = current.next
             current.next = menu_item
 
-    # function to insert all items from excel sheet
+    # Function to insert all items from Excel sheet
     def insertAll(self):
         dataset_name = ".\ms_annual_data_2022.xlsx"
         # Read the Excel file
@@ -78,22 +89,24 @@ class HashMap:
             dietary_fiber = row['dietary_fiber']
             sugar = row['sugar']
             protein = row['protein']
-
+            self.insert_restaurant_category(restaurant, category) # Create a map of Restaurants and their categories
+            # Insert menu items into HashMap
             self.insert(
                 MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
                      trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
 
-    # search / retrieval function to return a vector of menu items that satisfy the parameters
+    # Search / retrieval function to return a vector of menu items that satisfy the parameters (category and restaurant)
     def search(self, category, restaurant):
         index = (sum(ord(c) for c in category) + sum(ord(c) for c in restaurant)) % self.capacity
         current = self.map[index]
         found_items = []
+        # Loop through all items at that index
         while current:
             if current.category == category and current.restaurant == restaurant:
                 found_items.append(current)
             current = current.next
         return found_items
-    # function to print map
+    # Function to print map, just for testing
     def print_map(self):
         for i, item in enumerate(self.map):
             print(f"Index {i}:")
@@ -102,3 +115,13 @@ class HashMap:
                 print(f"    {current.name} ({current.category}) - {current.restaurant}")
                 current = current.next
             print()
+
+        # Function to print restaurant categories for a given restaurant
+    def print_restaurant_categories(self, restaurant):
+        if restaurant in self.restaurant_categories:
+            categories = self.restaurant_categories[restaurant]
+            print(f"Categories offered by {restaurant}:")
+            for category in categories:
+                print(f"    {category}")
+        else:
+            print(f"No categories found for {restaurant}")

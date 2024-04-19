@@ -18,4 +18,4 @@ class MenuItem:
         self.dietary_fiber = dietary_fiber
         self.sugar = sugar
         self.protein = protein
-        self.next = None
+        self.next = None # Used for seperate chaining in hashmap
