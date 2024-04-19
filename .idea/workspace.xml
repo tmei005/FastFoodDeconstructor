@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="still needs search function">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nibblerProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nibblerProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="hash map done yass">
       <change beforePath="$PROJECT_DIR$/backend/HashMapClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/HashMapClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Node.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Node.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms_annual_data_2022.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +135,7 @@
       <workItem from="1713370661720" duration="6000" />
       <workItem from="1713371386433" duration="666000" />
       <workItem from="1713462662602" duration="6679000" />
-      <workItem from="1713469931312" duration="3476000" />
+      <workItem from="1713469931312" duration="3849000" />
     </task>
     <task id="LOCAL-00001" summary="first commit &gt;_&lt;">
       <option name="closed" value="true" />
@@ -244,7 +239,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713465276423</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="hash map done yass">
+      <option name="closed" value="true" />
+      <created>1713493974723</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713493974723</updated>
+    </task>
+    <task id="LOCAL-00015" summary="hash map done yass">
+      <option name="closed" value="true" />
+      <created>1713494040837</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713494040837</updated>
+    </task>
+    <task id="LOCAL-00016" summary="hash map done yass">
+      <option name="closed" value="true" />
+      <created>1713494061095</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713494061095</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,11 +291,12 @@
     <MESSAGE value="working on hashmap" />
     <MESSAGE value="restaurant map class" />
     <MESSAGE value="still needs search function" />
-    <option name="LAST_COMMIT_MESSAGE" value="still needs search function" />
+    <MESSAGE value="hash map done yass" />
+    <option name="LAST_COMMIT_MESSAGE" value="hash map done yass" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nibblerProject$MinHeap.coverage" NAME="MinHeap Coverage Results" MODIFIED="1713285588447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/nibblerProject$main.coverage" NAME="main Coverage Results" MODIFIED="1713248447697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/FastFoodDeconstructor$main.coverage" NAME="main Coverage Results" MODIFIED="1713493749283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/FastFoodDeconstructor$main.coverage" NAME="main Coverage Results" MODIFIED="1713494153758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
 </project>

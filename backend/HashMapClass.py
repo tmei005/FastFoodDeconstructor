@@ -16,7 +16,6 @@ class HashMap:
         return ascii_sum % self.capacity
 
     def _rehash(self):
-        print('\nRehashing \n')
         # Double the capacity
         new_capacity = self.capacity * 2
         new_map = [None] * new_capacity
@@ -48,7 +47,6 @@ class HashMap:
             self._rehash()
 
         index = self._hash(menu_item)
-        print (index)
         if self.map[index] is None:
             self.map[index] = menu_item
             self.size += 1
