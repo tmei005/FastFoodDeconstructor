@@ -23,5 +23,25 @@
             </ul>
         </div>
     </div>
+    <img id="catAnimation" src="Images/cat1.png" alt="cat burger" class="cat-image">
+    <script>
+        // List of image URLs
+        const images = ["Images/cat1.png", "Images/cat2.png", "Images/cat3.png"];
+
+        // Initialize index to 0
+        let index = 0;
+
+        // Function to change image
+        function changeImage() {
+            // Update src attribute with the next image URL
+            document.getElementById("catAnimation").src = images[index];
+
+            // Increment index or reset to 0 if it exceeds the length of the images array
+            index = (index + 1) % images.length;
+        }
+
+        // Call changeImage function every second
+        setInterval(changeImage, 800);
+    </script>
 </body>
 </html>
