@@ -5,20 +5,28 @@ import pandas as pd
 class RestaurantMap:
 
     def __init__(self):
-        dataset_name = "ms_annual_data_2022.xlsx"
-        # create a map with all restaurant names as the key and
-        # a minHeap of its menu items as the value
-        restaurants = {}
-        restaurant_index = {}
+        # restaurant name is the key, value is a vector of pairs of the category and row number of that category in the excel sheet
+        self.restaurant_categories = {}
+        dataset_name = ".\ms_annual_data_2022.xlsx"
+        # Read the Excel file
         df = pd.read_excel(dataset_name)
-        rest_name = ""
-        #iterate through excel sheet to add restaurants
+        rowNum = 2; # items in this dataset start at row 2
         for index, row in df.iterrows():
-            # if restaurant already added, add that item to its heap
-            if row['Restaurant'] in restaurants:
-                # INSERT ITEM TO EXISTING MINHEAP AT THIS INDEX
-
-            # if not already in set, add the restaurant and set value to none
+            restaurant = row['restaurant']
+            category = row['food_category']
+            if restaurant in self.restaurant_categories: # add restaurant to map
+                # add (category, rowNum) pair to the set for that restaurant
+                # only if category doesn't exist because we want the first index of that category
+                if category not in [pair[0] for pair in self.restaurant_categories[restaurant]]:
+                    self.restaurant_categories[restaurant].add((category, rowNum))
             else:
-                rest_name = row['Restaurant']
-                # INSERT ITEM TO MINHEAP AT INDEX rest_name
+                # add restaurant and create (category, rowNum) pair list
+                self.restaurant_categories[restaurant] = [(category, rowNum)]
+            rowNum += 1
+
+    def findIndex(self, restaurant, category):
+        if restaurant in self.restaurant_categories:
+            for pair in self.restaurant_categories[restaurant]:
+                if category == pair[0]:
+                    return pair[1]
+        return None
