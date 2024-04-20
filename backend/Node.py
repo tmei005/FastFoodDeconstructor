@@ -1,5 +1,6 @@
 import string
-class Node:
+import pandas as pd
+class MenuItem:
     def __init__(self, name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
                  trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein):
         self.name = name
@@ -17,4 +18,4 @@ class Node:
         self.dietary_fiber = dietary_fiber
         self.sugar = sugar
         self.protein = protein
-        self.next = None
+        self.next = None # Used for seperate chaining in hashmap
