@@ -7,9 +7,6 @@ import pandas as pd
 import sys
 
 if __name__ == "__main__":
-    # Create an instance of the RestaurantMap class
-    restaurant_map = RestaurantMap()
 
-    restaurant = "McDonald's"
-    category = 'Burger'
-    print(restaurant_map.findIndex(restaurant, category))
+    # Define the list of restaurants
+    restaurantsList = ["Applebee's", "Arby's", "McDonald's"]
