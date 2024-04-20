@@ -1,6 +1,7 @@
 from MinHeap import MinHeap
 import pandas as pd
 
+# This class creates a map where the key is restaurant name and value is
 class RestaurantMap:
 
     def __init__(self):

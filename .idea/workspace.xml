@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="timer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/cat drawings.psd" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Images/cat drawings.psd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/frame 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Images/cat1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/frame 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Images/cat2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/frame 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Images/cat3.png" afterDir="false" />
+    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="cat animation">
       <change beforePath="$PROJECT_DIR$/backend/MinHeap.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/MinHeap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/RestaurantMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/RestaurantMap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +123,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="" />
+      <changelist id="" name="other" comment="" />
       <created>1713247111152</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -145,7 +138,7 @@
       <workItem from="1713462662602" duration="6679000" />
       <workItem from="1713469931312" duration="5536000" />
       <workItem from="1713554131199" duration="3679000" />
-      <workItem from="1713637664307" duration="1791000" />
+      <workItem from="1713637664307" duration="2629000" />
     </task>
     <task id="LOCAL-00001" summary="first commit &gt;_&lt;">
       <option name="closed" value="true" />
@@ -305,7 +298,47 @@
       <option name="project" value="LOCAL" />
       <updated>1713557832461</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cat animation">
+      <option name="closed" value="true" />
+      <created>1713639938049</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713639938049</updated>
+    </task>
+    <task id="LOCAL-00022" summary="cat animation">
+      <option name="closed" value="true" />
+      <created>1713640041324</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713640041324</updated>
+    </task>
+    <task id="LOCAL-00023" summary="cat animation">
+      <option name="closed" value="true" />
+      <created>1713640080323</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713640080323</updated>
+    </task>
+    <task id="LOCAL-00024" summary="cat animation">
+      <option name="closed" value="true" />
+      <created>1713640117407</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1713640117407</updated>
+    </task>
+    <task id="LOCAL-00025" summary="cat animation">
+      <option name="closed" value="true" />
+      <created>1713640141531</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713640141531</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +370,8 @@
     <MESSAGE value="Storing categories for each restaurant added" />
     <MESSAGE value="fixed Node import" />
     <MESSAGE value="timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="timer" />
+    <MESSAGE value="cat animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="cat animation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nibblerProject$MinHeap.coverage" NAME="MinHeap Coverage Results" MODIFIED="1713285588447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
