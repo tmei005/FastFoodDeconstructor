@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>FAST FOOD DECONSTRUCTOR</h1>
-    <p>Restaurant Selection</p>
+    <p class="page-name">Restaurant Selection</p>
     <div class="search-box">
         <div class="row">
             <input type="text" id="input-box" placeholder="Search a restaurant" autocomplete="off">
@@ -24,6 +24,10 @@
             </ul>
         </div>
     </div>
+
+
+   <a href="page2.html">click me!</a>
+
     <img id="catAnimation" src="Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
         // List of image URLs
@@ -35,10 +39,10 @@
         // Function to change image
         function changeImage() {
             // Update src attribute with the next image URL
-            document.getElementById("catAnimation").src = images[index];
+            document.getElementById("catAnimation").src = images[page1];
 
             // Increment index or reset to 0 if it exceeds the length of the images array
-            index = (index + 1) % images.length;
+            page1 = (page1 + 1) % images.length;
         }
 
         // Call changeImage function every second
