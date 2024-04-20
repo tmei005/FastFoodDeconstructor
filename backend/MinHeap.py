@@ -1,5 +1,5 @@
 import pandas as pd
-from Node import MenuItem
+import Node
 
 class MinHeap:
     dataset_name = "ms_annual_data_2022.xlsx"
@@ -30,7 +30,7 @@ class MinHeap:
                 sugar = row['sugar']
                 protein = row['protein']
 
-                self.insert(MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
+                self.heap.insert(Node(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
                  trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
 
             # Function to return parent
