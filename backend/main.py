@@ -1,18 +1,25 @@
-import MinHeap
+# import MinHeap
+# import RestaurantMap
+import time
+from Node import MenuItem
+import HashMapClass
 import pandas as pd
 import sys
 
 if __name__ == "__main__":
-    dataset_name = "ms_annual_data_2022.xlsx"
-    # create a map with all restaurant names as the key and
-    # a minHeap of its menu items as the value
-    restaurants = {}
-    df = pd.read_excel(dataset_name)
-    rest_name = ""
-    #iterate through excel sheet to add restaurants
-    for index, row in df.iterrows():
-        # if restaurant not already added
-        if(rest_name != restaurants[row['Restaurant']]):
-            rest_name = row['Restaurant']
-            minheap = MinHeap.MinHeap(restaurants) # create a new heap to add as the value
-            restaurants[rest_name] = minheap
+    hashmap = HashMapClass.HashMap()
+    start_time = time.time()  # Record the start time
+    hashmap.insertAll()
+    end_time = time.time()  # Record the end time
+
+    # Calculate the elapsed time
+    elapsed_time = end_time - start_time
+    print("insertAll() execution time:", elapsed_time, "seconds")
+    hashmap.print_restaurant_categories("McDonald's")
+    # hashmap.print_map()
+    # mcdonaldsburgers = hashmap.search("Burgers", "McDonald's")
+    # wendysdessert = hashmap.search("Desserts", "Wendy's")
+    # for burgers in mcdonaldsburgers:
+    #     print(burgers.name)
+    # for burgers in wendysdessert:
+    #     print(burgers.name)
