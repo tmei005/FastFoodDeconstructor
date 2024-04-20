@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fast Food Deconstructor</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>FAST FOOD DECONSTRUCTOR</h1>
+    <p class="page-name">Restaurant Selection</p>
+    <div class="search-box">
+        <div class="row">
+            <input type="text" id="input-box" placeholder="Search a restaurant" autocomplete="off">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="result-box">
+            <ul>
+                {% for restaurant in restaurants_list %}
+                    <li>{{ restaurant }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+   <a href="page2.html">click me!</a>
+
+    <img id="catAnimation" src="Images/cat1.png" alt="cat burger" class="cat-image">
+    <script>
+        // List of image URLs
+        const images = ["Images/cat1.png", "Images/cat2.png", "Images/cat4.png"];
+
+        // Initialize index to 0
+        let index = 0;
+
+        // Function to change image
+        function changeImage() {
+            // Update src attribute with the next image URL
+            document.getElementById("catAnimation").src = images[page1];
+
+            // Increment index or reset to 0 if it exceeds the length of the images array
+            page1 = (page1 + 1) % images.length;
+        }
+
+        // Call changeImage function every second
+        setInterval(changeImage, 800);
+    </script>
+</body>
+</html>
