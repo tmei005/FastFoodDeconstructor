@@ -13,11 +13,27 @@ h1{
     text-align: center;
     color: #F2F2F2;
 }
-p{
+.page-name{
     font-size: 50px;
     text-align: center;
     color: #ADADAD;
 }
+
+.restaurant-selection-box{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.restaurant-selection {
+    font-size: 30px;
+    color: #F2F2F2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 3px solid white;
+    background: #565F6B;
+}
+
 .search-box{
     width: 600px;
     background: #fff;
