@@ -10,6 +10,6 @@ if __name__ == "__main__":
     # Create an instance of the RestaurantMap class
     restaurant_map = RestaurantMap()
 
-    restaurant = "McDonald's"
-    category = 'Burger'
+    restaurant = "The Cheesecake Factory"
+    category = "Soup"
     print(restaurant_map.findIndex(restaurant, category))

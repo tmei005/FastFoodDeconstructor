@@ -14,16 +14,18 @@ class RestaurantMap:
         for index, row in df.iterrows():
             restaurant = row['restaurant']
             category = row['food_category']
+            print (restaurant, category, rowNum)
             if restaurant in self.restaurant_categories: # add restaurant to map
                 # add (category, rowNum) pair to the set for that restaurant
                 # only if category doesn't exist because we want the first index of that category
                 if category not in [pair[0] for pair in self.restaurant_categories[restaurant]]:
-                    self.restaurant_categories[restaurant].add((category, rowNum))
+                    self.restaurant_categories[restaurant].append((category, rowNum))
             else:
                 # add restaurant and create (category, rowNum) pair list
                 self.restaurant_categories[restaurant] = [(category, rowNum)]
             rowNum += 1
 
+    # this function returns the first row of the category for specified restaurant
     def findIndex(self, restaurant, category):
         if restaurant in self.restaurant_categories:
             for pair in self.restaurant_categories[restaurant]:
