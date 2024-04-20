@@ -68,7 +68,7 @@ button .fa-solid {
 .cat-image {
     position: absolute;
     bottom: -20px;
-    left: 50%;
+    left: 92.8%;
     transform: translateX(-50%);
     z-index: -1; /* Ensure the image stays behind other content */
     width: 200px; /* Change size */
