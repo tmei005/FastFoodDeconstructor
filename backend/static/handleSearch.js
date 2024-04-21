@@ -1,7 +1,7 @@
 const resultsBox = document.querySelector(".result-box");
-        const inputBox = document.getElementById("input-box");
+const inputBox = document.getElementById("input-box");
 
-        inputBox.onkeyup = function(){
+    inputBox.onkeyup = function(){
         let result = [];
         let input = inputBox.value.trim().toLowerCase();
         if(input.length){
@@ -15,13 +15,14 @@ const resultsBox = document.querySelector(".result-box");
     }
 }
     function display(result) {
-    const content = result.map((list)=>{
+        const content = result.map((list)=>{
         return "<li onclick=selectInput(this)>" + list + "</li>";
     });
 
     resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>"
 }
     function selectInput(list){
-    inputBox.value = list.innerHTML
-    resultsBox.innerHTML = ''
+        inputBox.value = list.innerHTML
+        resultsBox.innerHTML = ''
+        sessionStorage.setItem('selectedRestaurant', list.innerHTML);
 }
