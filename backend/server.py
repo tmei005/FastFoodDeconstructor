@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import json
 import time
 import RestaurantMap
@@ -8,13 +8,15 @@ import pandas as pd
 import sys
 
 app = Flask(__name__)
+app.secret_key = 'user1'
+
 restMap = RestaurantMap.RestaurantMap()
 selected_restaurant = ''
 @app.route('/process_input', methods=['POST'])
 def process_input():
     user_input = request.form['restaurant']
     # Now you can use the user_input in your Python code
-    print("User input:", user_input)
+    session['user1'] = user_input
     # Process the input further as needed
     return user_input
 @app.route('/')
@@ -26,6 +28,8 @@ def page1():
 
 @app.route('/page2.html')
 def page2():
+    categories = restMap.restaurant_categories[session.get('user1')].values()
+    print(categories)
     return render_template('page2.html')
 
 @app.route('/page3.html')
