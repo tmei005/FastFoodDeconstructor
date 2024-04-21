@@ -1,14 +1,28 @@
 from flask import Flask, render_template
+import time
+from Node import MenuItem
+import HashMapClass
+import pandas as pd
+import sys
 
 app = Flask(__name__)
 
-# Define the list of restaurants
-restaurants_list = ["Restaurant 1", "mcdonalds 2", "Restaurant 3"]
-
 @app.route('/')
-def index():
+def page1():
     # Pass the restaurants_list variable to the template
+    hashmap = HashMapClass.HashMap()
+    hashmap.insertAll()
+    restaurants_list = list(hashmap.restaurant_categories.keys())
     return render_template('page1.html', restaurants_list=restaurants_list)
+
+@app.route('/page2.html')
+def page2():
+    return render_template('page2.html')
+
+
+@app.route('/page3.html')
+def page3():
+    return render_template('page3.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

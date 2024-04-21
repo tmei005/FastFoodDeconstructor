@@ -35,7 +35,7 @@ class Heap:
                      trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
                 child = self.size()-1
                 parent = (child-1)/2
-                while(parent >= 0 and self.arr[parent].name > self.arr[child].name)
+                while(parent >= 0 and self.arr[parent].name > self.arr[child].name):
                     temp = parent
                     arr[parent] = lis[pos2]
                     lis[pos2] = temp
@@ -55,10 +55,10 @@ class Heap:
     def _heapifyDown(self, index):
         lcIndex = self._findLeftChild(index)
         rcIndex = self._findRightChild(index)
-        if (lcIndex < self.size and (self.arr[lcIndex] > self.arr[index] and self.arr[rcIndex] > self.arr[index]))
-            if (self.arr[lcIndex] < self.arr[rcIndex])
+        if (lcIndex < self.size and (self.arr[lcIndex] > self.arr[index] and self.arr[rcIndex] > self.arr[index])):
+            if (self.arr[lcIndex] < self.arr[rcIndex]):
                 largerChildIndex = rcIndex;
-            else
+            else:
                 largerChildIndex = lcIndex;
 
         temp = index
