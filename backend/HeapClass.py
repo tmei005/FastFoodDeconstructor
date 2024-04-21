@@ -1,16 +1,38 @@
 import pandas as pd
 from Node import MenuItem
-
 class Heap:
     def __init__(self, restaurant, category):
-        self.arr = []
-        self.size = len(self.arr)
+        self.heapArr = []
+        self.heapSize = 0
         self.restaurant = restaurant
         self.category = category
 
-    # inserts (searched) restaurant with (clicked-on) category
-    def _insert(self):
-        dataset_name = ".\ms_annual_data_2022.xlsx"
+    def heapifyUp(self, child):
+        if child == 0:
+            return
+        parent = (child - 1) // 2
+
+        if parent >= 0 and self.heapArr[parent].name > self.heapArr[child].name:
+            self.heapArr[parent], self.heapArr[child] = self.heapArr[child], self.heapArr[parent]
+
+            self.heapifyUp(parent)
+
+    def heapifyDown(self, index = 0):
+
+        leftChild = 2 * index + 1
+        rightChild = 2 * index + 2
+        smallerChild = index
+        if leftChild < self.heapSize and self.heapArr[leftChild].name < self.heapArr[smallerChild].name:
+            smallerChild = leftChild
+        if rightChild < self.heapSize and self.heapArr[rightChild].name < self.heapArr[smallerChild].name:
+            smallerChild = rightChild
+
+        if smallerChild != index:
+            self.heapArr[index], self.heapArr[smallerChild] = self.heapArr[smallerChild], self.heapArr[index]
+            self.heapifyDown(smallerChild)
+
+    def insertData(self):
+        dataset_name = "ms_annual_data_2022.xlsx"
         df = pd.read_excel(dataset_name)
         for index, row in df.iterrows():
 
@@ -31,41 +53,25 @@ class Heap:
             protein = row['protein']
 
             if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
-                self.arr.append(MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
-                     trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
-                child = self.size()-1
-                parent = (child-1)/2
-                while(parent >= 0 and self.arr[parent].name > self.arr[child].name):
-                    temp = parent
-                    arr[parent] = lis[pos2]
-                    lis[pos2] = temp
-                    child = parent
-                    parent = (child-1)/2
+                self.heapArr.append(
+                    MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
+                             trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
+                self.heapSize += 1
+                self.heapifyUp(self.heapSize-1)
 
-    def _findLeftChild(self, parentIndex):
-        return 2*parentIndex+1
+    def extractMin(self):
+        if self.heapSize == 0:
+            return None
+        minNum = self.heapArr[0]
+        self.heapArr[0] = self.heapArr[self.heapSize - 1]
+        self.heapSize -= 1
+        self.heapArr.pop()
+        if self.heapSize > 0:
+            self.heapifyDown(0)
 
-    def _findRightChild(self, parentIndex):
-        return 2*parentIndex +2
+        return minNum
 
-    def _extractMin(self):
-        self.arr[0] = self.arr[--self.size]
-        self._heapifyDown(0)
-
-    def _heapifyDown(self, index):
-        lcIndex = self._findLeftChild(index)
-        rcIndex = self._findRightChild(index)
-        if (lcIndex < self.size and (self.arr[lcIndex] > self.arr[index] and self.arr[rcIndex] > self.arr[index])):
-            if (self.arr[lcIndex] < self.arr[rcIndex]):
-                largerChildIndex = rcIndex;
-            else:
-                largerChildIndex = lcIndex;
-
-        temp = index
-        self.arr[index] = self.arr[largerChildIndex]
-        self.largerChildIndex = self.arr[temp]
-        self._heapifyDown(largerChildIndex);
-
-    def _print(self):
-        for MenuItem in self.arr:
-            print(MenuItem.name, MenuItem.calories)
+    def printHeap(self):
+        self.insertData()
+        for i in range(self.heapSize):
+            print(self.extractMin().name)
