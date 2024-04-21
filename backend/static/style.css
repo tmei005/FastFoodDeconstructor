@@ -208,7 +208,30 @@ button .fa-solid {
 }
 
 .active {
-    background: #31363D;
+    background: #3C424B;
+}
+
+.page2-button {
+    background-color: #4E5A6A;
+    padding: 0.65em;
+    height: 50px;
+    border-radius: 0.5em;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px #4D5A6B solid;
+    transition: 0.3s;
+    /*transition: box-shadow 0.2s ease;*/
+    cursor: pointer;
+}
+
+.page2-button:hover {
+    background-color: #586679;
+}
+
+.page2-button:active, .page2-button:focus{
+    background-color: #465160;
+    border: 2px #465160 solid;
+
 }
 
 .menu-open {
