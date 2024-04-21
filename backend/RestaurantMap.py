@@ -6,7 +6,7 @@ class RestaurantMap:
     def __init__(self):
         # restaurant name is the key, value is a vector of pairs of the category and row number of that category in the excel sheet
         self.restaurant_categories = {}
-        dataset_name = ".\ms_annual_data_2022.xlsx"
+        dataset_name = "ms_annual_data_2022.xlsx"
         # Read the Excel file
         df = pd.read_excel(dataset_name)
         rowNum = 2; # items in this dataset start at row 2

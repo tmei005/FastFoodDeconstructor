@@ -61,7 +61,7 @@ class HashMap:
 
     # Function to insert all items from Excel sheet
     def insertAll(self):
-        dataset_name = ".\ms_annual_data_2022.xlsx"
+        dataset_name = "ms_annual_data_2022.xlsx"
         # Read the Excel file
         df = pd.read_excel(dataset_name)
         # Accessing data
