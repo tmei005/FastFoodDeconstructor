@@ -1,0 +1,37 @@
+Index: frontend/page1.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fast Food Deconstructor</title>\n    <link rel=\"stylesheet\" href=\"https://pyscript.net/latest/pyscript.css\"/>\n    <script defer src=\"https://pyscript.net/latest/pyscript.js\"></script>\n    <link rel=\"stylesheet\" href=\"style.css\">\n    <script src=\"https://kit.fontawesome.com/4a79a0d316.js\" crossorigin=\"anonymous\"></script>\n</head>\n<body>\n    <h1>FAST FOOD DECONSTRUCTOR</h1>\n    <p>Restaurant Selection</p>\n    <div class=\"search-box\">\n        <div class=\"row\">\n            <input type=\"text\" id=\"input-box\" placeholder=\"Search a restaurant\" autocomplete=\"off\">\n            <button><i class=\"fa-solid fa-magnifying-glass\"></i></button>\n        </div>\n        <div class=\"result-box\">\n            <ul>\n                <li>Applebee's</li>\n                <li>Arby's</li>\n                <li>McDonalds</li>\n            </ul>\n        </div>\n    </div>\n    <img id=\"catAnimation\" src=\"Images/cat1.png\" alt=\"cat burger\" class=\"cat-image\">\n    <script>\n        // List of image URLs\n        const images = [\"Images/cat1.png\", \"Images/cat2.png\", \"Images/cat3.png\"];\n\n        // Initialize index to 0\n        let index = 0;\n\n        // Function to change image\n        function changeImage() {\n            // Update src attribute with the next image URL\n            document.getElementById(\"catAnimation\").src = images[index];\n\n            // Increment index or reset to 0 if it exceeds the length of the images array\n            index = (index + 1) % images.length;\n        }\n\n        // Call changeImage function every second\n        setInterval(changeImage, 800);\n    </script>\n</body>\n</html>
+===================================================================
+diff --git a/frontend/page1.html b/frontend/page1.html
+--- a/frontend/page1.html	
++++ b/frontend/page1.html	
+@@ -21,6 +21,7 @@
+                 <li>Applebee's</li>
+                 <li>Arby's</li>
+                 <li>McDonalds</li>
++                <li>Burger King</li>
+             </ul>
+         </div>
+     </div>
+Index: frontend/page2.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Title</title>\n</head>\n<body>\n\n</body>\n</html>
+===================================================================
+diff --git a/frontend/page2.html b/frontend/page2.html
+--- a/frontend/page2.html	
++++ b/frontend/page2.html	
+@@ -2,7 +2,11 @@
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+-    <title>Title</title>
++    <title>Fast Food Deconstructor</title>
++    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
++    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
++    <link rel="stylesheet" href="style.css">
++    <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
+ </head>
+ <body>
+ 
