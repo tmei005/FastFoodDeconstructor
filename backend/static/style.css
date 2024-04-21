@@ -199,19 +199,60 @@ button .fa-solid {
 .macro-div {
     background: white;
     width: 1100px;
-    height: 800px;
-    border: 2px solid black;
-    padding: 20px;
+    height: auto;
     box-sizing: border-box;
     margin-left: 21%;
     margin-top: 35px;
+    margin-bottom: 35px;
     overflow: auto;
     word-break: break-all;
 }
 
-.macro-inner {
-    background-color: lightblue;
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+.macro-div1{
+    height: auto;
 }
+
+.macro-div2{
+    height: auto;
+}
+/*Overall box for both the left and right box*/
+.macro-div3{
+    height: auto;
+}
+
+.macro-item-name{
+    padding: 20px;
+    color: black;
+    justify-content: left;
+}
+.macro-text {
+    margin-bottom: 2px;
+    margin-left: 5px;
+    color: black;
+    height:auto;
+}
+/*Left box that shows the pi chart*/
+.macro-div4{
+    width: 50%;
+    height: auto;
+    float: left;
+    padding: 50px;
+    background: #4D5A6B;
+}
+
+/*Right box that shows the macros*/
+.macro-div5{
+    float: right;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+}
+/*.macro-inner {*/
+/*    background-color: black;*/
+/*    max-width: 25%;*/
+/*    height:auto;*/
+/*    box-sizing: border-box;*/
+/*        overflow: auto;*/
+/*    word-break: break-all;*/
+
+/*}*/
