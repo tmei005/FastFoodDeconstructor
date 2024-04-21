@@ -4,6 +4,7 @@ import time
 import RestaurantMap
 from Node import MenuItem
 import HashMapClass
+import HeapClass
 import pandas as pd
 import sys
 
