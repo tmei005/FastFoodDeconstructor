@@ -12,7 +12,7 @@
     <h1>FAST FOOD DECONSTRUCTOR</h1>
     <p class="page-name">Menu Item Selection</p>
     <div class="restaurant-selection-box">
-      <div class="restaurant-selection">Mcdonald's</div>
+        <div class="restaurant-selection">{{selected_restaurant}}</div>
     </div>
     <div class="dropdown-div">
       <div class="dropdown">
@@ -20,20 +20,20 @@
           <span class="selected">Appetizer's & Sides</span>
           <div class="caret"></div>
         </div>
-        <ul class="menu">
-          <li class="active">Appetizer's & Sides</li>
-          <li>Baked Goods</li>
-          <li>Beverages</li>
-          <li>Burgers</li>
-          <li>Desserts</li>
-          <li>Entrees</li>
-          <li>Fried Potatoes</li>
-          <li>Pizza</li>
-          <li>Salads</li>
-          <li>Sandwiches</li>
-          <li>Soup</li>
-          <li>Toppings & Ingredients</li>
-        </ul>
+          <div class="menu" id="categoriesResult"></div>
+          <script>
+        const restaurant_cat= JSON.parse('{{restaurant_cat | tojson | safe}}');
+            // Select the menu element
+            const menu = document.getElementById("categoriesResult");
+            // Clear the existing HTML content of the menu
+            menu.innerHTML = "";
+            // Loop through the categories and create list items
+            restaurant_cat.forEach(category => {
+                const li = document.createElement("li");
+                li.textContent = category;
+                menu.appendChild(li);
+            });
+          </script>
       </div>
       <div class="dropdown sort">
         <div class="select">
@@ -93,10 +93,6 @@
             });
         });
     </script>
-
-
-
-
 
     <a href="page3.html">click me!</a>
 
