@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import time
+import RestaurantMap
 from Node import MenuItem
 import HashMapClass
 import pandas as pd
@@ -10,9 +11,8 @@ app = Flask(__name__)
 @app.route('/')
 def page1():
     # Pass the restaurants_list variable to the template
-    hashmap = HashMapClass.HashMap()
-    hashmap.insertAll()
-    restaurants_list = list(hashmap.restaurant_categories.keys())
+    restList = RestaurantMap.RestaurantMap()
+    restaurants_list = list(restList.restaurant_categories.keys())
     return render_template('page1.html', restaurants_list=restaurants_list)
 
 @app.route('/page2.html')

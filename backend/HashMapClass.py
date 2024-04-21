@@ -8,14 +8,6 @@ class HashMap:
         self.size = 0
         self.load_factor = .75
         self.map = [None] * self.capacity
-        self.restaurant_categories = {}
-
-    # function to create a map where restaurant is the key and values is a set of categories of food that restaurant offers
-    def insert_restaurant_category(self, restaurant, category):
-        if restaurant in self.restaurant_categories:
-            self.restaurant_categories[restaurant].add(category)
-        else:
-            self.restaurant_categories[restaurant] = {category}
 
     # function to get hash value using ASCII sum of  restaurant name and category
     def _hash(self, menu_item):
@@ -89,8 +81,6 @@ class HashMap:
             dietary_fiber = row['dietary_fiber']
             sugar = row['sugar']
             protein = row['protein']
-            self.insert_restaurant_category(restaurant, category) # Create a map of Restaurants and their categories
-            # Insert menu items into HashMap
             self.insert(
                 MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
                      trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
