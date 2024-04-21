@@ -11,14 +11,17 @@ app = Flask(__name__)
 restMap = RestaurantMap.RestaurantMap()
 selected_restaurant = ''
 @app.route('/process_input', methods=['POST'])
-def get_input():
-    user_in = request.form['userin']
-    return user_in
-
+def process_input():
+    user_input = request.form['restaurant']
+    # Now you can use the user_input in your Python code
+    print("User input:", user_input)
+    # Process the input further as needed
+    return user_input
 @app.route('/')
 def page1():
     restaurants = list(restMap.restaurant_categories.keys())
     restaurants = restaurants[:-1] # take out 'Nan'
+    print(selected_restaurant)
     return render_template('page1.html', restaurants_list=restaurants)
 
 @app.route('/page2.html')
