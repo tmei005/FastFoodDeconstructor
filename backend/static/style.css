@@ -36,7 +36,7 @@ h1{
 
 .search-box{
     width: 600px;
-    background: #fff;
+    background: #4E5A6A;
     margin: 30px auto 0;
     border-radius: 5px;
 }
@@ -52,7 +52,7 @@ input{
     border: 0;
     outline: 0;
     font-size: 18px;
-    color: #333;
+    color: #F2F2F2;
 }
 button{
     background: transparent;
@@ -61,12 +61,12 @@ button{
 }
 button .fa-solid {
     width: 25px;
-    color: #555;
+    color: #F2F2F2;
     font-size: 22px;
     cursor: pointer;
 }
 ::placeholder {
-    color: #555;
+    color: #F2F2F2;
 }
 .result-box ul{
     border-top: 1px solid #999;
@@ -77,9 +77,10 @@ button .fa-solid {
     border-radius: 3px;
     padding: 15px 10px;
     cursor: pointer;
+    color: #F2F2F2;
 }
 .result-box ul li:hover{
-    background: #e9f3ff;
+    background: #31363D;
 }
 .cat-image {
     position: fixed;
