@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="started fine-tuning page1 visuals">
+    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="page1 search bar tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/page1.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/page1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/page2.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/page2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713719695444</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="page1 search bar tweaks">
+      <created>1713729044414</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713729044414</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit &gt;_&lt;" />
     <MESSAGE value="learning how to Github" />
     <MESSAGE value="Made page1 search bar before display based on input" />
     <MESSAGE value="m" />
@@ -510,13 +516,14 @@
     <MESSAGE value="chelsea u like that" />
     <MESSAGE value="cat animation on all pages &amp; made page link look nice af" />
     <MESSAGE value="started fine-tuning page1 visuals" />
-    <option name="LAST_COMMIT_MESSAGE" value="started fine-tuning page1 visuals" />
+    <MESSAGE value="page1 search bar tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="page1 search bar tweaks" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FastFoodDeconstructor$server.coverage" NAME="server Coverage Results" MODIFIED="1713659928672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/FastFoodSorter$main.coverage" NAME="main Coverage Results" MODIFIED="1713719740995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/nibblerProject$main.coverage" NAME="main Coverage Results" MODIFIED="1713248447697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/FastFoodSorter$server.coverage" NAME="server Coverage Results" MODIFIED="1713728871319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/FastFoodSorter$server.coverage" NAME="server Coverage Results" MODIFIED="1713730970711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/nibblerProject$MinHeap.coverage" NAME="MinHeap Coverage Results" MODIFIED="1713285588447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FastFoodSorter$RestaurantMap.coverage" NAME="RestaurantMap Coverage Results" MODIFIED="1713660877477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/FastFoodDeconstructor$main.coverage" NAME="main Coverage Results" MODIFIED="1713557439366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
