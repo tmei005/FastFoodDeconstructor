@@ -11,14 +11,7 @@ app = Flask(__name__)
 app.secret_key = 'user1'
 
 restMap = RestaurantMap.RestaurantMap()
-selected_restaurant = ''
-# @app.route('/process_input', methods=['POST'])
-# def process_input():
-#     user_input = request.form['restaurant']
-#     # Now you can use the user_input in your Python code
-#     session['user1'] = user_input
-#     # Process the input further as needed
-#     return user_input
+
 @app.route('/')
 def page1():
     restaurants = list(restMap.restaurant_categories.keys())
@@ -28,10 +21,8 @@ def page1():
 
 @app.route('/page2.html')
 def page2():
-    # categories = restMap.restaurant_categories[session.get('user1')].values()
-    #     print(categories)
-    print(session.get('user1'))
-    return render_template('page2.html')
+    json_map = json.dumps(restMap.restaurant_categories)
+    return render_template('page2.html', restaurant_map=json_map)
 
 @app.route('/page3.html')
 def page3():

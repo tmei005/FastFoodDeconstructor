@@ -221,9 +221,7 @@ button .fa-solid {
     width: 1100px;
     height: auto;
     box-sizing: border-box;
-    margin-left: 21%;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin: 35px auto;
     overflow: auto;
     word-break: break-all;
 }
@@ -257,7 +255,8 @@ button .fa-solid {
     height: auto;
     float: left;
     padding: 50px;
-    background: #4D5A6B;
+    background: white;
+    justify-content: center;
 }
 
 /*Right box that shows the macros*/

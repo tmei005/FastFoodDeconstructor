@@ -1,0 +1,130 @@
+Index: backend/server.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import Flask, render_template\r\nimport time\r\nimport RestaurantMap\r\nfrom Node import MenuItem\r\nimport HashMapClass\r\nimport pandas as pd\r\nimport sys\r\n\r\napp = Flask(__name__)\r\n\r\n@app.route('/')\r\ndef page1():\r\n    # Pass the restaurants_list variable to the template\r\n    restList = RestaurantMap.RestaurantMap()\r\n    restaurants_list = list(restList.restaurant_categories.keys())\r\n    return render_template('page1.html', restaurants_list=restaurants_list)\r\n\r\n@app.route('/page2.html')\r\ndef page2():\r\n    return render_template('page2.html')\r\n\r\n\r\n@app.route('/page3.html')\r\ndef page3():\r\n    return render_template('page3.html')\r\n\r\nif __name__ == '__main__':\r\n    app.run(debug=True)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/server.py b/backend/server.py
+--- a/backend/server.py	
++++ b/backend/server.py	
+@@ -1,4 +1,5 @@
+-from flask import Flask, render_template
++from flask import Flask, render_template, jsonify
++import json
+ import time
+ import RestaurantMap
+ from Node import MenuItem
+@@ -7,13 +8,27 @@
+ import sys
+ 
+ app = Flask(__name__)
++def escape_special_characters(string):
++    if not isinstance(string, str):
++        string = str(string)
++    # Escape single quotes
++    string = string.replace("'", "\\'")
++    # Escape double quotes
++    string = string.replace('"', '\\"')
++    return string
+ 
+ @app.route('/')
+ def page1():
+-    # Pass the restaurants_list variable to the template
+-    restList = RestaurantMap.RestaurantMap()
+-    restaurants_list = list(restList.restaurant_categories.keys())
+-    return render_template('page1.html', restaurants_list=restaurants_list)
++    # # Pass the restaurants_list variable to the template
++    # restList = RestaurantMap.RestaurantMap()
++    # restaurants_list = list(restList.restaurant_categories.keys())
++    # restaurants = []
++    # for restaurant in restaurants:
++    #     restaurants.append(escape_special_characters(restaurant))
++    # return render_template('page1.html', restaurants=restaurants)
++    restaurants = ["McDonald's 1", "misc", "Restaurant 2", "Restaurant 3"]
++    # restaurants_list = json.dumps(restaurants)
++    return render_template('page1.html', restaurants_list=restaurants)
+ 
+ @app.route('/page2.html')
+ def page2():
+Index: backend/templates/page1.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Fast Food Deconstructor</title>\r\n    <link rel=\"stylesheet\" href=\"https://pyscript.net/releases/2024.1.1/core.css\" />\r\n    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='style.css') }}\">\r\n    <script type=\"module\" src=\"https://pyscript.net/releases/2024.1.1/core.js\"></script>\r\n    <script src=\"https://kit.fontawesome.com/4a79a0d316.js\" crossorigin=\"anonymous\"></script>\r\n</head>\r\n<body>\r\n    <h1>FAST FOOD DECONSTRUCTOR</h1>\r\n    <p class=\"page-name\">Restaurant Selection</p>\r\n    <div class=\"search-box\">\r\n        <div class=\"row\">\r\n            <input type=\"text\" id=\"input-box\" placeholder=\"Search a restaurant\" autocomplete=\"off\">\r\n            <button><i class=\"fa-solid fa-magnifying-glass\"></i></button>\r\n        </div>\r\n        <div class=\"result-box\">\r\n            <ul>\r\n                {% for restaurant in restaurants_list %}\r\n                    <li>{{ restaurant }}</li>\r\n                {% endfor %}\r\n            </ul>\r\n        </div>\r\n    </div>\r\n\r\n   <a href=\"../page2.html\">click me!</a>\r\n\r\n    <img id=\"catAnimation\" src=\"../static/Images/cat1.png\" alt=\"cat burger\" class=\"cat-image\">\r\n    <script>\r\n        // List of image URLs\r\n        const images = [\"{{ url_for('static', filename='Images/cat1.png') }}\", \"{{ url_for('static', filename='Images/cat2.png') }}\", \"{{ url_for('static', filename='Images/cat4.png') }}\"];\r\n\r\n        // Initialize index to 0\r\n        let index = 0;\r\n\r\n        // Function to change image\r\n        function changeImage() {\r\n            // Update src attribute with the next image URL\r\n            document.getElementById(\"catAnimation\").src = images[index];\r\n\r\n            // Increment index or reset to 0 if it exceeds the length of the images array\r\n            index = (index + 1) % images.length;\r\n        }\r\n\r\n        // Call changeImage function every second\r\n        setInterval(changeImage, 800);\r\n    </script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/templates/page1.html b/backend/templates/page1.html
+--- a/backend/templates/page1.html	
++++ b/backend/templates/page1.html	
+@@ -7,6 +7,7 @@
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+     <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
++
+ </head>
+ <body>
+     <h1>FAST FOOD DECONSTRUCTOR</h1>
+@@ -17,13 +18,19 @@
+             <button><i class="fa-solid fa-magnifying-glass"></i></button>
+         </div>
+         <div class="result-box">
+-            <ul>
+-                {% for restaurant in restaurants_list %}
+-                    <li>{{ restaurant }}</li>
+-                {% endfor %}
+-            </ul>
++<!--            <ul>-->
++<!--                {% for restaurant in restaurants_list %}-->
++<!--                    <li>{{ restaurant }}</li>-->
++<!--                {% endfor %}-->
++<!--            </ul>-->
+         </div>
+     </div>
++    <script>
++        const restaurants_list= JSON.parse('{{restaurants_list | tojson | safe}}');
++        console.log(restaurants_list)
++    </script>
++    <script src="../static/autocomplete.js" defer></script>
++
+ 
+    <a href="../page2.html">click me!</a>
+ 
+Index: backend/static/autocomplete.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/static/autocomplete.js b/backend/static/autocomplete.js
+new file mode 100644
+--- /dev/null	
++++ b/backend/static/autocomplete.js	
+@@ -0,0 +1,27 @@
++// Ensure that the JSON string is properly escaped before passing it to JavaScript
++const restaurantsJsonString = '{{ restaurants_list | tojson | escape | safe }}';
++const restaurants = JSON.parse(restaurantsJsonString);
++
++// Now 'restaurants' should be a JavaScript array containing restaurant names
++console.log(restaurants);
++console.log("rest");
++const resultsBox = document.querySelector(".result-box");
++const inputBox = document.getElementById("input-box");
++    console.log(typeof restaurants)
++
++inputBox.onkeyup = function(){
++    let result = [];
++    let input = inputBox.value;
++    if(input.length){
++        result = restaurants.filter((keyword)=>{
++            return keyword.toLowerCase().includes(input.toLowerCase());
++        });
++    }
++    console.log(result)
++    displayResults(result);
++}
++function displayResults(result) {
++    const content = result.map((list)=>{
++        return "<li>" + list + "</li>";
++    });
++}
+\ No newline at end of file
