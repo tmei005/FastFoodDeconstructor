@@ -15,33 +15,39 @@
       <div class="restaurant-selection">Mcdonald's</div>
     </div>
     <div class = "macro-div">
-            <div class = "macro-text">
-                <p> hello </p>
-
+            <div class = "macro-div1">
+                <p class = macro-item-name>  Ketchup </p>
             </div>
-        </div>
+            <div class = "macro-div2">
+                <p class = macro-text> Description: </p>
+            </div>
+            <div class = "macro-div3">
+                <div class = "macro-div4">
+                    <p class = macro-text> hello </p>
+                </div>
+                <div class = "macro-div5">
+                    <p class = macro-text> Serving Size:  </p>
+                    <p class = macro-text> Calories:  </p>
+                    <p class = macro-text> Protein:  </p>
+                    <p class = macro-text> Carbohydrates:  </p>
+                    <p class = macro-text> Total Fat:  </p>
+                    <p class = macro-text> Saturated Fat:  </p>
+                    <p class = macro-text> Dietary Fiber:  </p>
+                    <p class = macro-text> Cholesterol:  </p>
+                    <p class = macro-text> Sodium:  </p>
+                    <p class = macro-text> Sodium:  </p>
+                    <p class = macro-text> Sugar:  </p>
+                </div>
+            </div>
     </div>
         </script>
-        <div id="cat"></div>
-
+<div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
         // List of image URLs
-        const images = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
-
-        // Initialize index to 0
-        let index = 0;
-        // Function to change image
-        function changeImage() {
-            // Update src attribute with the next image URL
-            document.getElementById("catAnimation").src = images[index];
-            index = (index + 1) % images.length;
-        }
-        // Call changeImage function every second
-        setInterval(changeImage, 800);
-
-
+        const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
+    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 
 </body>
 </html>

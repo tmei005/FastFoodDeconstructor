@@ -20,51 +20,15 @@
     </div>
     <script>
         const restaurants_list= JSON.parse('{{restaurants_list | tojson | safe}}');
-        const resultsBox = document.querySelector(".result-box");
-        const inputBox = document.getElementById("input-box");
-
-        inputBox.onkeyup = function(){
-        let result = [];
-        let input = inputBox.value.trim().toLowerCase();
-        if(input.length){
-            result = restaurants_list.filter((keyword)=>{
-                return keyword.toLowerCase().startsWith(input);
-        });
-    }
-        display(result);
-    if(!result.length) {
-        resultsBox.innerHTML = '';
-    }
-}
-    function display(result) {
-    const content = result.map((list)=>{
-        return "<li onclick=selectInput(this)>" + list + "</li>";
-    });
-
-    resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>"
-}
-    function selectInput(list){
-    inputBox.value = list.innerHTML
-    resultsBox.innerHTML = ''
-}
     </script>
-        <div id="cat"></div>
+    <script src="{{ url_for('static', filename='handleSearch.js') }}"></script>
 
+        <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
         // List of image URLs
-        const images = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
-
-        // Initialize index to 0
-        let index = 0;
-        // Function to change image
-        function changeImage() {
-            // Update src attribute with the next image URL
-            document.getElementById("catAnimation").src = images[index];
-            index = (index + 1) % images.length;
-        }
-        // Call changeImage function every second
-        setInterval(changeImage, 800);
+        const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
+    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 </body>
 </html>
