@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 import time
 import RestaurantMap
@@ -9,6 +9,11 @@ import sys
 
 app = Flask(__name__)
 restMap = RestaurantMap.RestaurantMap()
+selected_restaurant = ''
+@app.route('/process_input', methods=['POST'])
+def get_input():
+    user_in = request.form['userin']
+    return user_in
 
 @app.route('/')
 def page1():
