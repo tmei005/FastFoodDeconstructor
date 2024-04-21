@@ -28,8 +28,9 @@ def page1():
 
 @app.route('/page2.html')
 def page2():
-    #categories = restMap.restaurant_categories[session.get('user1')].values()
-    #print(categories)
+    # categories = restMap.restaurant_categories[session.get('user1')].values()
+    #     print(categories)
+    print(session.get('user1'))
     return render_template('page2.html')
 
 @app.route('/page3.html')
