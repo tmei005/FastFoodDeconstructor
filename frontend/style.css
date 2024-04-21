@@ -98,7 +98,7 @@ button .fa-solid {
 }
 
 .dropdown * {
-    box-sizing: border-box;
+    width: 250px;
 }
 
 .select {
