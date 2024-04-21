@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <h1>FAST FOOD DECONSTRUCTOR</h1>
@@ -55,7 +54,7 @@
     resultsBox.innerHTML = ''
 }
     </script>
-
+        <div id="cat"></div>
 
    <a href="../page2.html">click me!</a>
 
@@ -66,16 +65,12 @@
 
         // Initialize index to 0
         let index = 0;
-
         // Function to change image
         function changeImage() {
             // Update src attribute with the next image URL
             document.getElementById("catAnimation").src = images[index];
-
-            // Increment index or reset to 0 if it exceeds the length of the images array
             index = (index + 1) % images.length;
         }
-
         // Call changeImage function every second
         setInterval(changeImage, 800);
     </script>
