@@ -23,7 +23,10 @@
             </div>
             <div class = "macro-div3">
                 <div class = "macro-div4">
-                    <p class = macro-text> hello </p>
+                    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+                    <canvas id = "myChart"> </canvas>
                 </div>
                 <div class = "macro-div5">
                     <p class = macro-text> Serving Size:  </p>
@@ -40,14 +43,51 @@
                 </div>
             </div>
     </div>
-        </script>
-<div id="cat"></div>
-    <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
+        <div id="cat"></div>
+        <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
         // List of image URLs
-        const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
+        const images = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
+
+        // Initialize index to 0
+        let index = 0;
+        // Function to change image
+        function changeImage() {
+            // Update src attribute with the next image URL
+            document.getElementById("catAnimation").src = images[index];
+            index = (index + 1) % images.length;
+        }
+        // Call changeImage function every second
+        setInterval(changeImage, 800);
+
+        let labels = ['Carbs', 'Fats', 'Proteins'];
+        let itemData  = [20, 20, 60];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                data: itemData,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 100, 0)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+           
+        };
+
+        const chart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+
     </script>
-    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 
 </body>
 </html>
