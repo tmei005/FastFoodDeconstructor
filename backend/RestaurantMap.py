@@ -13,7 +13,6 @@ class RestaurantMap:
         for index, row in df.iterrows():
             restaurant = row['restaurant']
             category = row['food_category']
-            print (restaurant, category, rowNum)
             if restaurant in self.restaurant_categories: # add restaurant to map
                 # add (category, rowNum) pair to the set for that restaurant
                 # only if category doesn't exist because we want the first index of that category
