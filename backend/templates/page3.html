@@ -23,17 +23,17 @@
             <p class = macro-description>{{ item_desc }}</p>
             <div class="divider"></div>
         </div>
-        <div class = "macro-div3">
-            <div class = "macro-div5">
-                <p class = "macro-text"> Calories:  {{ item_cal }}</p>
-                <p class = "macro-text"> Protein:  {{ item_protein }}</p>
-                <p class = "macro-text"> Carbohydrates:  {{ item_carbs }}</p>
-                <p class = "macro-text"> Total Fat:  {{ item_fat }}</p>
-                <p class = "macro-text"> Saturated Fat:  {{ item_sfat }}</p>
-                <p class = "macro-text"> Dietary Fiber:  {{ item_fiber }}</p>
-                <p class = "macro-text"> Cholesterol:  {{ item_chol }}</p>
-                <p class = "macro-text"> Sodium:  {{ item_sodium }}</p>
-                <p class = "macro-text"> Sugar:  {{ item_sugar }}</p>
+        <div class="macro-div3">
+            <div class="macro-div5">
+                <p class="macro-text">Calories: <script>document.write(parseFloat("{{ item_cal }}").toFixed(1));</script></p>
+                <p class="macro-text">Protein: <script>document.write(parseFloat("{{ item_protein }}").toFixed(1));</script></p>
+                <p class="macro-text">Carbohydrates: <script>document.write(parseFloat("{{ item_carbs }}").toFixed(1));</script></p>
+                <p class="macro-text">Total Fat: <script>document.write(parseFloat("{{ item_fat }}").toFixed(1));</script></p>
+                <p class="macro-text">Saturated Fat: <script>document.write(parseFloat("{{ item_sfat }}").toFixed(1));</script></p>
+                <p class="macro-text">Dietary Fiber: <script>document.write(parseFloat("{{ item_fiber }}").toFixed(1));</script></p>
+                <p class="macro-text">Cholesterol: <script>document.write(parseFloat("{{ item_chol }}").toFixed(1));</script></p>
+                <p class="macro-text">Sodium: <script>document.write(parseFloat("{{ item_sodium }}").toFixed(1));</script></p>
+                <p class="macro-text">Sugar: <script>document.write(parseFloat("{{ item_sugar }}").toFixed(1));</script></p>
             </div>
             <div class = "macro-div4">
                 <div class="pie-chart">
@@ -54,12 +54,10 @@
     <script src="{{ url_for('static', filename='cat.js') }}"></script>
     <script>
         let labels = ['Carbs', 'Fats', 'Proteins'];
-        let item_carbs = parseInt("{{ item_carbs }}");
-        let item_fat = parseInt("{{ items_fat }}");
-        let item_protein = parseInt("{{ item_protein }}");
-
+        let item_carbs = parseFloat("{{ item_carbs }}").toFixed(1);
+        let item_fat = parseFloat("{{ item_fat }}").toFixed(1);
+        let item_protein = parseFloat("{{ item_protein }}").toFixed(1);
         let itemData = [item_carbs, item_fat, item_protein];
-        console.log(itemData)
         const data = {
             labels: labels,
             datasets: [{

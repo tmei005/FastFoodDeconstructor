@@ -1,5 +1,5 @@
 import string
-import pandas as pd
+
 class MenuItem:
     def __init__(self, name, category, restaurant, description, calories, total_fat, saturated_fat,
                  trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein):
@@ -17,7 +17,7 @@ class MenuItem:
         self.dietary_fiber = dietary_fiber
         self.sugar = sugar
         self.protein = protein
-        self.next = None # Used for seperate chaining in hashmap
+        self.next = None  # Used for separate chaining in hashmap
 
     def to_dict(self):
         return {

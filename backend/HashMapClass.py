@@ -2,6 +2,7 @@ import string
 from Node import MenuItem
 import pandas as pd
 
+
 class HashMap:
     def __init__(self, restaurant, category):
         self.capacity = 50
@@ -10,9 +11,11 @@ class HashMap:
         self.map = [None] * self.capacity
         self.restaurant = restaurant
         self.category = category
+        # When HashMap is created, insert all items from that restaurant and category
         self.insertData()
 
-    # function to get hash value using ASCII sum of  restaurant name and category
+        # Function to get hash value using ASCII sum of MenuItem name
+
     def _hash(self, menu_item):
         ascii_sum = sum(ord(c) for c in str(menu_item.name))
         return ascii_sum % self.capacity
@@ -46,21 +49,21 @@ class HashMap:
 
     # Function to insert a menu item into the hash map
     def insert(self, menu_item):
-        # check load factor
+        # Check load factor
         if self.size / self.capacity >= self.load_factor:
             self._rehash()
-        index = self._hash(menu_item) # get hash value for index
+        index = self._hash(menu_item)  # Get hash value for index
         # Add menu item to map
         if self.map[index] is None:
             self.map[index] = menu_item
             self.size += 1
-        else: # If there is already a menu item at that index, append it to the linked list
+        else:  # If there is already a menu item at that index, append it to the linked list
             current = self.map[index]
             while current.next is not None:
                 current = current.next
             current.next = menu_item
 
-    # Function to insert all items from Excel sheet
+    # Function to insert MenuItems from Excel sheet
     def insertData(self):
         dataset_name = "ms_annual_data_2022.xlsx"
         df = pd.read_excel(dataset_name)
@@ -81,18 +84,19 @@ class HashMap:
             protein = row['protein']
             if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
                 self.insert(
-                MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
-                     trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
+                    MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
+                             trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
 
-    # Function to get map
+    # Function to get all items in the map as an array
     def getMap(self):
-        a = []
+        items = []
         for item in self.map:
             if item is not None:
-                a.append(item)
-        return a
+                items.append(item)
+        # return a list of menuItems sorted by name
+        return sorted(items, key=lambda x: x.name)
 
-    # Function to search for a menu item based on its name
+    # Function to search for a MenuItem based on its name
     def search_by_name(self, name):
         ascii_sum = sum(ord(c) for c in str(name))
         index = ascii_sum % self.capacity
