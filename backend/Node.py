@@ -18,3 +18,21 @@ class MenuItem:
         self.sugar = sugar
         self.protein = protein
         self.next = None # Used for seperate chaining in hashmap
+
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'category': self.category,
+            'restaurant': self.restaurant,
+            'description': self.description,
+            'calories': self.calories,
+            'total_fat': self.total_fat,
+            'saturated_fat': self.saturated_fat,
+            'trans_fat': self.trans_fat,
+            'cholesterol': self.cholesterol,
+            'sodium': self.sodium,
+            'carbs': self.carbs,
+            'dietary_fiber': self.dietary_fiber,
+            'sugar': self.sugar,
+            'protein': self.protein
+        }

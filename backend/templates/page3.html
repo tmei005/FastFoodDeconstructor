@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Fast Food Deconstructor</title>
+
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -12,39 +13,27 @@
     <h1>FAST FOOD DECONSTRUCTOR</h1>
     <p class="page-name">Nutrition Breakdown</p>
     <div class="restaurant-selection-box">
-      <div class="restaurant-selection">Mcdonald's</div>
+      <div class="restaurant-selection">{{ selected_restaurant }}</div>
     </div>
     <div class = "macro-div">
         <div class = "macro-div1">
-            Ketchup
-<!--            <p class = macro-item-name>Ketchup</p>-->
-<!--            Stuffed Cheesecake Pancake Breakfast: two eggs, two pancakes, cream cheese filling, seasonal fruit, powdered sugar, and strawberry syrup-->
+            {{ item_name }}
         </div>
         <div class = "macro-div2">
-            2 Egg Whites, Available In: Banana Nut Farmer's Choice, The Classic Breakfast, Sunrise, Double Meat Farmer's Choice, Farmer's Choice, Homestead Farmer's Choice, Banana Berry Farmer's Choice, The Whole Hog,Sirloin Steak & Farm-Fresh Eggs, Country-Fried Steak & Farm-Fresh Eggs, Rise & Shine, Honey Butter Chicken & Biscuit Breakfast, Seasonal, All Day Breakfast
-<!--            <p class = macro-description>2 Egg Whites, Available In: Banana Nut Farmer's Choice, The Classic Breakfast, Sunrise, Double Meat Farmer's Choice, Farmer's Choice, Homestead Farmer's Choice, Banana Berry Farmer's Choice, The Whole Hog,Sirloin Steak & Farm-Fresh Eggs, Country-Fried Steak & Farm-Fresh Eggs, Rise & Shine, Honey Butter Chicken & Biscuit Breakfast, Seasonal, All Day Breakfast</p>-->
+            <p class = macro-description>{{ item_desc }}</p>
             <div class="divider"></div>
         </div>
         <div class = "macro-div3">
-<!--            <div class = "macro-div4">-->
-<!--                <div class="pie-chart">-->
-<!--                    <script-->
-<!--                        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">-->
-<!--                    </script>-->
-<!--                    <canvas id = "myChart"> </canvas>-->
-<!--                </div>-->
-<!--            </div>-->
-
             <div class = "macro-div5">
-                <p class = "macro-text"> Calories:  </p>
-                <p class = "macro-text"> Protein:  </p>
-                <p class = "macro-text"> Carbohydrates:  </p>
-                <p class = "macro-text"> Total Fat:  </p>
-                <p class = "macro-text"> Saturated Fat:  </p>
-                <p class = "macro-text"> Dietary Fiber:  </p>
-                <p class = "macro-text"> Cholesterol:  </p>
-                <p class = "macro-text"> Sodium:  </p>
-                <p class = "macro-text"> Sugar:  </p>
+                <p class = "macro-text"> Calories:  {{ item_cal }}</p>
+                <p class = "macro-text"> Protein:  {{ item_protein }}</p>
+                <p class = "macro-text"> Carbohydrates:  {{ item_carbs }}</p>
+                <p class = "macro-text"> Total Fat:  {{ item_fat }}</p>
+                <p class = "macro-text"> Saturated Fat:  {{ item_sfat }}</p>
+                <p class = "macro-text"> Dietary Fiber:  {{ item_fiber }}</p>
+                <p class = "macro-text"> Cholesterol:  {{ item_chol }}</p>
+                <p class = "macro-text"> Sodium:  {{ item_sodium }}</p>
+                <p class = "macro-text"> Sugar:  {{ item_sugar }}</p>
             </div>
             <div class = "macro-div4">
                 <div class="pie-chart">
@@ -56,8 +45,6 @@
             </div>
         </div>
     </div>
-
-
  <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
@@ -65,12 +52,14 @@
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
     <script src="{{ url_for('static', filename='cat.js') }}"></script>
-
     <script>
-
         let labels = ['Carbs', 'Fats', 'Proteins'];
-        let itemData  = [20, 20, 60];
+        let item_carbs = parseInt("{{ item_carbs }}");
+        let item_fat = parseInt("{{ items_fat }}");
+        let item_protein = parseInt("{{ item_protein }}");
 
+        let itemData = [item_carbs, item_fat, item_protein];
+        console.log(itemData)
         const data = {
             labels: labels,
             datasets: [{
@@ -118,8 +107,6 @@
             document.getElementById('myChart'),
             config
         );
-
     </script>
-
 </body>
 </html>

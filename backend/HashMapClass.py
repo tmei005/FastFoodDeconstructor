@@ -91,3 +91,13 @@ class HashMap:
             if item is not None:
                 a.append(item)
         return a
+
+    # Function to search for a menu item based on its name
+    def search_by_name(self, name):
+        ascii_sum = sum(ord(c) for c in str(name))
+        index = ascii_sum % self.capacity
+        current = self.map[index]
+        while current is not None:
+            if current.name == name:
+                return current
+            current = current.next
