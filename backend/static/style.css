@@ -231,7 +231,6 @@ button .fa-solid {
 .page2-button:active, .page2-button:focus{
     background-color: #465160;
     border: 2px #465160 solid;
-
 }
 
 .sorting-time {
