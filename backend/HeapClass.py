@@ -74,4 +74,3 @@ class Heap:
         for i in range(self.heapSize):
             a.append(self.extractMin())
         return a
-    # dds

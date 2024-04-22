@@ -51,7 +51,7 @@ def get_menu():
     menu = [menuItem.name for menuItem in menu_items]
     end_time = time.time()
     elapsed_time = end_time - start_time
-    elapsed_time = f"{elapsed_time:.2f}"  # Output: "12345.00"
+    elapsed_time = f"{elapsed_time:.2f}"
     # Redirect to the homepage or another appropriate page
     return render_template('page2_5.html', selected_sorting=session.get('selected_sorting'), selected_category=session.get('selected_category'), selected_restaurant=session.get('selected_restaurant'), menu=menu, elapsed_time=elapsed_time)
 

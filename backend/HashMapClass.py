@@ -79,15 +79,10 @@ class HashMap:
             dietary_fiber = row['dietary_fiber']
             sugar = row['sugar']
             protein = row['protein']
-            # restaurant_found = "false"
             if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
-                # restaurant_found = "true"
                 self.insert(
                 MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
                      trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
-            # elif restaurant_found == "true":
-            #     return
-            # dds
 
     # Function to get map
     def getMap(self):
