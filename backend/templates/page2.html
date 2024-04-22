@@ -47,7 +47,7 @@
       </div>
         <form id="search-form" action="/get_menu" method="POST">
             <input type="hidden" id="selected_category" name="selected_category">
-            <input type="hidden" id="selected_sorting" name="selected_sorting">
+            <input type="hidden" id="selected_datastructure" name="selected_datastructure">
             <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
       </div>
@@ -58,11 +58,11 @@
             // Get the selected category
                     // Get the selected category and sorting
             const selected_category = document.querySelector('.selected').innerText;
-            const selected_sorting = document.querySelector('.dropdown.sort .selected').innerText;
+            const selected_datastructure = document.querySelector('.dropdown.sort .selected').innerText;
 
             // Store the selected category and sorting in the hidden input fields
             document.getElementById("selected_category").value = selected_category;
-            document.getElementById("selected_sorting").value = selected_sorting;
+            document.getElementById("selected_datastructure").value = selected_datastructure;
             document.getElementById("search-form").submit(); // Submit the form
         });
         function changeColor(element) {
@@ -111,20 +111,20 @@
                     // add active class to clicked option element
                     option.classList.add('active');
                     // Inside the event listener for sorting selection
-                    const selected_sorting = document.getElementById("selectedSorting");
-                    selected_sorting.value = selected.innerText; // Update the value of the hidden input field
+                    const selected_datastructure = document.getElementById("selectedSorting");
+                    selected_datastructure.value = selected.innerText; // Update the value of the hidden input field
                 });
             });
         });
         // category results background color change onclick
     </script>
-    <div id="cat"></div>
+    <!--    Cat animation-->
+ <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
-        // List of image URLs
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
-        <script src="{{ url_for('static', filename='cat.js') }}"></script>
+    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 <script>
     // Function to set default selections for dropdown menus
     function setDefaultSelections() {
@@ -139,13 +139,13 @@
             }
         });
         // Select the default sorting method for the second dropdown menu
-        const selected_sorting = "Heap"; // Change this to your desired default sorting method
+        const selected_datastructure = "Heap"; // Change this to your desired default sorting method
         const sortingMenu = document.querySelector('.dropdown.sort .menu');
         const sortingOptions = sortingMenu.querySelectorAll('li');
         sortingOptions.forEach(option => {
-            if (option.textContent === selected_sorting) {
+            if (option.textContent === selected_datastructure) {
                 option.classList.add('active');
-                document.querySelector('.dropdown.sort .selected').textContent = selected_sorting;
+                document.querySelector('.dropdown.sort .selected').textContent = selected_datastructure;
             }
         });
     }
