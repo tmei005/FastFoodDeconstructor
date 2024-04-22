@@ -240,20 +240,23 @@ button .fa-solid {
 }
 
 .macro-div {
-    background: white;
-    width: 1100px;
+    background: #6C7D92;
+    width: 700px;
     height: auto;
     box-sizing: border-box;
     margin: 35px auto;
+
     overflow: auto;
     word-break: break-all;
-        border-radius: 20px;
+    /*border: 3px white;*/
+    /*border-style: solid;*/
+    border-radius: 20px;
 
 }
 
 .macro-div1{
     height: auto;
-        padding-top: 10px;
+    padding-top: 10px;
     padding-left: 15px;
 
 }
@@ -261,6 +264,7 @@ button .fa-solid {
 .macro-div2{
     height: auto;
     border-bottom: solid;
+        border-color: #242a32;
         padding-left: 10px;
 
 }
@@ -271,21 +275,27 @@ button .fa-solid {
 
 .macro-item-name{
     font-size: 25px;
-    color: black;
+    color: #F2F2F2;
     justify-content: left;
+}
+.macro-description{
+    margin-bottom: 2px;
+    margin-left: 5px;
+    color: #242a32;
+    height:auto;
+    font-size: 12px;
 }
 .macro-text {
     margin-bottom: 2px;
     margin-left: 5px;
-    color: black;
+    color: #F2F2F2;
     height:auto;
 }
 /*Left box that shows the pi chart*/
 .macro-div4{
-    width: 35%;
+    width: 65%;
     height: auto;
     float: left;
-    background: white;
     justify-content: center;
     margin-top: 70px;
 }
@@ -293,10 +303,11 @@ button .fa-solid {
 /*Right box that shows the macros*/
 .macro-div5{
     float: right;
-    width: 65%;
+    width: 35%;
     height: auto;
     padding: 20px;
     border-left: solid;
+    border-color: #242a32;
 
 }
 /*.macro-inner {*/
