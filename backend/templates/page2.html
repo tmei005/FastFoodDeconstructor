@@ -46,24 +46,45 @@
         </ul>
       </div>
 <!--        <form id="search-form" action="/process_input2" method="POST">-->
-            <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
 <!--        </form>-->
-        <script>
-    // Add an event listener to the magnifying glass button
-    document.getElementById("magnifying-glass").addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+      <script>
+        // Add an event listener to the magnifying glass button
+        document.getElementById("magnifying-glass").addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-        // Get the selected category
-        const selectedCategory = document.querySelector('.selected').innerText;
+            // Get the selected category
+            const selectedCategory = document.querySelector('.selected').innerText;
 
-        // Retrieve all items in the selected category
-        const itemsInCategory = restaurant_cat_map.filter(pair => pair[0] === selectedCategory)[0][1];
+            // Retrieve all items in the selected category
+            const itemsInCategory = restaurant_cat_map.filter(pair => pair[0] === selectedCategory)[0][1];
 
-        // Display the items (for demonstration purposes, you can adjust this part)
-        alert(`Items in ${selectedCategory}: ${itemsInCategory.join(', ')}`);
-    });
-</script>
+            // Display the items (for demonstration purposes, you can adjust this part)
+            alert(`Items in ${selectedCategory}: ${itemsInCategory.join(', ')}`);
+        });
+      </script>
     </div>
+
+    <div class="sorting-time">
+      <p>Results: Sorted X [Category] in Y seconds.</p>
+    </div>
+
+    <div class="category-div-outer">
+        <div class="category-div-inner">
+            <ul class="category-results">
+<!--              <li>Stuffed Cheesecake Pancake Breakfast: two eggs, two pancakes, cream cheese filling, seasonal fruit, powdered sugar, and strawberry syrup</li>-->
+<!--              <li>Fridays Big Ribs - Apple Butter BBQ (Half Rack) & Sirloin (6oz) (Parmesan Butter) with Mashed Potatoes & Lemon- Butter Broccoli</li>-->
+              <li onclick="changeColor(this)">Mozzarella Sticks</li>
+              <li onclick="changeColor(this)">Spinach & Artichoke Dip</li>
+              <li onclick="changeColor(this)">Crunchy Onion Rings, Side</li>
+              <li onclick="changeColor(this)">Broccoli</li>
+              <li onclick="changeColor(this)">Baked Potato</li>
+            </ul>
+        </div>
+    </div>
+
+
+
     <script>
         // get all dropdowns
         const dropdowns = document.querySelectorAll('.dropdown');
@@ -120,6 +141,11 @@
             });
         });
 
+        // category results background color change onclick
+        function changeColor(element) {
+            element.style.backgroundColor = '#92A9C6';
+            // element.style.color = '#F2F2F2';
+        }
     </script>
     <a href="page3.html">click me!</a>
     <div id="cat"></div>
