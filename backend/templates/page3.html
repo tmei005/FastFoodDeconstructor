@@ -55,14 +55,15 @@
     <script src="{{ url_for('static', filename='cat.js') }}"></script>
     <script>
         let labels = ['Carbs', 'Fats', 'Proteins'];
-        let item_carbs = parseFloat("{{ item_carbs }}").toFixed(1);
-        let item_fat = parseFloat("{{ item_fat }}").toFixed(1);
-        let item_protein = parseFloat("{{ item_protein }}").toFixed(1);
-        let itemData = [item_carbs, item_fat, item_protein];
+        let item_carbs = parseFloat("{{ item_carbs }}");
+        let item_fat = parseFloat("{{ item_fat }}");
+        let item_protein = parseFloat("{{ item_protein }}");
+        let total_grams = item_fat + item_carbs + item_protein
+        let itemData = [item_carbs/total_grams.toFixed(1), item_fat/total_grams.toFixed(1), item_protein/total_grams.toFixed(1)];
         const data = {
             labels: labels,
             datasets: [{
-                data: itemData,
+                data: itemData, // Convert float to percentage string
                 backgroundColor: [
                     '#475B72',
                     '#3A4B5F',
@@ -98,10 +99,19 @@
                 chartArea: {
                   backgroundColor: "rgba(0,0,0)"
                 },
+                // When hovering a section of the pie chart, show the percentage of the macro
+                tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        let dataset = data.datasets[tooltipItem.datasetIndex];
+                        let currentValue = dataset.data[tooltipItem.index];
+                        let label = data.labels[tooltipItem.index];
+                        return `${label}: ${(currentValue * 100).toFixed(1)}%`;
+                    }
+                }
             }
-
+            }
         };
-
         const chart = new Chart(
             document.getElementById('myChart'),
             config

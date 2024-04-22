@@ -74,28 +74,34 @@ def get_menu():
 def item_select():
     selected_item = request.form.get('selected_item')
     session['selected_item'] = selected_item
-    print(session.get('selected_datastructure'))
     if session.get('selected_datastructure') == "Heap":  # for heap
-        menu_items= session.get('menu_items', [])
+        menu_items = session.get('menu_items', [])
         for i in menu_items:
-            if i.name == selected_item:
+            if i.get('name') == selected_item:
                 item = i
     else:
         global hashMap  # access hashMap
-        item = hashMap.search_by_name(selected_item) # for HashMap
-    # Load all menu item info into HTML template
-    return render_template('page3.html', selected_restaurant=session.get('selected_restaurant'), item_name=item.name,
-                           item_desc=item.description,
-                           item_protein=item.protein, item_cal=item.calories, item_carbs=item.carbs,
-                           item_sfat=item.saturated_fat,
-                           item_fiber=item.dietary_fiber, item_fat=item.total_fat, item_chol=item.cholesterol,
-                           item_sodium=item.sodium, item_sugar=item.sugar)
-
-
-#
-# @app.route('/page3.html')
-# def page3():
-#     return render_template('page3.html')
+        item = hashMap.search_by_name(selected_item)  # for HashMap
+    if isinstance(item, dict):
+        # Accessing attributes from the dictionary (heap)
+        return render_template('page3.html', selected_restaurant=session.get('selected_restaurant'),
+                               item_name=item.get('name'),
+                               item_desc=item.get('description'),
+                               item_protein=item.get('protein'), item_cal=item.get('calories'),
+                               item_carbs=item.get('carbs'),
+                               item_sfat=item.get('saturated_fat'),
+                               item_fiber=item.get('dietary_fiber'), item_fat=item.get('total_fat'),
+                               item_chol=item.get('cholesterol'),
+                               item_sodium=item.get('sodium'), item_sugar=item.get('sugar'))
+    else:
+        # Accessing attributes from the object (hashMap)
+        return render_template('page3.html', selected_restaurant=session.get('selected_restaurant'),
+                               item_name=item.name,
+                               item_desc=item.description,
+                               item_protein=item.protein, item_cal=item.calories, item_carbs=item.carbs,
+                               item_sfat=item.saturated_fat,
+                               item_fiber=item.dietary_fiber, item_fat=item.total_fat, item_chol=item.cholesterol,
+                               item_sodium=item.sodium, item_sugar=item.sugar)
 
 if __name__ == '__main__':
     app.run(debug=True)
