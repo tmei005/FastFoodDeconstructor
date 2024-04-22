@@ -14,7 +14,7 @@
     <div class="restaurant-selection-box">
         <div class="restaurant-selection">{{selected_restaurant}}</div>
     </div>
-    <div class="dropdown-div">
+    <div class="dropdown-div disable-hover">
       <div class="dropdown">
         <div class="select">
           <span class="selected">{{ selected_category }}</span>
@@ -26,12 +26,12 @@
         <div class="select">
           <span class="selected">{{ selected_sorting }}</span>
             <div class="caret"></div>
-      </div>
+        </div>
           <ul class="menu sort">
         </ul>
       </div>
-          <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
+          <button class="page2-button disabled"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
     <div class="sorting-time">
       <p>Results: Sorted {{ selected_category }} in {{ elapsed_time }} seconds.</p>
     </div>
@@ -58,7 +58,6 @@
             document.getElementById("search-form").submit();
         }
     </script>
-    <a href="page3.html">click me!</a>
             <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>

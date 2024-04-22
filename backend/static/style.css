@@ -51,7 +51,7 @@ h1{
 
 
 .search-box:hover {
-    background: #586679;
+    background: #6C7D92;
 }
 
 
@@ -79,7 +79,7 @@ button .fa-solid {
     color: #F2F2F2;
 }
 .result-box ul{
-    border-top: 1px solid #999;
+    border-top: 3px solid #525F6F;
     padding: 15px 10px;
 }
 .result-box ul li {
@@ -92,6 +92,7 @@ button .fa-solid {
 .result-box ul li:hover{
     background: #4E5A6A;
 }
+
 .cat-image {
     position: fixed;
     bottom: -2%;
@@ -111,15 +112,14 @@ button .fa-solid {
 }
 
 .dropdown * {
-    width: 310px;
+    width: 323px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
 .sort * {
-    width: 200px;
+    width: 187px;
 }
-
 
 
 .select {
@@ -144,6 +144,11 @@ button .fa-solid {
 
 .select:hover {
     background: #596679;
+}
+
+.disable-hover .select:hover {
+    background: #4E5A6A;
+    cursor: auto;
 }
 
 .caret {
@@ -181,7 +186,7 @@ button .fa-solid {
 
 
 .menu li {
-    width: 287px;
+    width: 301px;
     height: 50px;
     /*justify-content: center;*/
     /*padding: 0.7em 0.5em;*/
@@ -192,7 +197,7 @@ button .fa-solid {
 }
 
 .sort li {
-    width: 177px;
+    width: 164px;
     height: 50px;
     /*justify-content: center;*/
     /*padding: 0.7em 0.5em;*/
@@ -231,6 +236,11 @@ button .fa-solid {
 .page2-button:active, .page2-button:focus{
     background-color: #465160;
     border: 2px #465160 solid;
+}
+
+.page2-button.disabled:hover, .page2-button.disabled:active, .page2-button.disabled:focus {
+    background-color: #4E5A6A;
+    cursor: default;
 }
 
 .sorting-time {
@@ -290,6 +300,7 @@ button .fa-solid {
     /*border: 3px white;*/
     /*border-style: solid;*/
     border-radius: 20px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -298,7 +309,7 @@ button .fa-solid {
     padding-top: 15px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
     /*padding-left: 20px;*/
     font-size: 27px;
     color: #F2F2F2;
@@ -362,6 +373,7 @@ button .fa-solid {
     margin-left: 5px;
     color: #262A30;
     height:auto;
+    size: 10px;
 }
 /*Left box that shows the pi chart*/
 /*.macro-div4{*/
@@ -377,7 +389,7 @@ button .fa-solid {
     width: 70%;
     height: auto;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .pie-chart {
@@ -398,8 +410,7 @@ button .fa-solid {
 .macro-div5{
     width: 30%;
     height: auto;
-    padding: 15px;
-    margin-left: 10px;
+    padding: 15px 0px 15px 15px;
 }
 
 /*.macro-inner {*/
