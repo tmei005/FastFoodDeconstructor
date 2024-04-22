@@ -247,6 +247,8 @@ button .fa-solid {
     margin: 35px auto;
     overflow: auto;
     word-break: break-all;
+        border-radius: 20px;
+
 }
 
 .macro-div1{

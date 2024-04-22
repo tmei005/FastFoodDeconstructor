@@ -4,6 +4,7 @@ import time
 import RestaurantMap
 from Node import MenuItem
 import HashMapClass
+import HeapClass
 import pandas as pd
 import sys
 
@@ -27,13 +28,21 @@ def process_input():
 
 @app.route('/page2.html')
 def page2():
-    print(session.get("selected_restaurant"))
     selected_restaurant = session.get('selected_restaurant')
     restaurant_cat_map = restMap.restaurant_categories[selected_restaurant]
     restaurant_cat = [pair[0] for pair in restaurant_cat_map]
-    print(restaurant_cat)
     return render_template('page2.html', restaurant_cat=restaurant_cat, selected_restaurant=selected_restaurant)
 
+# @app.route('/process_input2', methods=['POST'])
+# def process_input2():
+#     selected_category = request.form.get('selected_category')
+#     selected_sorting = request.form.get('selected_sorting')
+#     # Further processing based on the selected category and sorting method
+#     # For example:
+#     print("Selected category:", selected_category)
+#     print("Selected sorting method:", selected_sorting)
+#     # Redirect to the homepage or another appropriate page
+#     return redirect('page1.html')
 @app.route('/page3.html')
 def page3():
     return render_template('page3.html')
