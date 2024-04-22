@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="removed some unnecessary code">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nibblerProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nibblerProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/page1.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/page1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/page2_5.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/page2_5.html" afterDir="false" />
-    </list>
+    <list default="true" id="f6c1d34c-c6c9-4c00-938c-5bd559a83f62" name="Changes" comment="fixed hover on page 2.5 &amp; spacing on dropdown menus and macros sizing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +38,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -187,7 +179,7 @@
       <workItem from="1713554131199" duration="3679000" />
       <workItem from="1713637664307" duration="3297000" />
       <workItem from="1713807711704" duration="16000" />
-      <workItem from="1713807853696" duration="6090000" />
+      <workItem from="1713807853696" duration="6408000" />
     </task>
     <task id="LOCAL-00001" summary="first commit &gt;_&lt;">
       <option name="closed" value="true" />
@@ -541,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713770350503</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fixed hover on page 2.5 &amp; spacing on dropdown menus and macros sizing">
+      <created>1713814253375</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1713814253375</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on hashmap" />
     <MESSAGE value="restaurant map class" />
     <MESSAGE value="still needs search function" />
     <MESSAGE value="hash map done yass" />
@@ -596,13 +594,14 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="trying again" />
     <MESSAGE value="removed some unnecessary code" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed some unnecessary code" />
+    <MESSAGE value="fixed hover on page 2.5 &amp; spacing on dropdown menus and macros sizing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed hover on page 2.5 &amp; spacing on dropdown menus and macros sizing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FastFoodDeconstructor$server.coverage" NAME="server Coverage Results" MODIFIED="1713659928672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/FastFoodSorter$main.coverage" NAME="main Coverage Results" MODIFIED="1713770686760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/nibblerProject$main.coverage" NAME="main Coverage Results" MODIFIED="1713248447697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/FastFoodSorter$server.coverage" NAME="server Coverage Results" MODIFIED="1713813952323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
+    <SUITE FILE_PATH="coverage/FastFoodSorter$server.coverage" NAME="server Coverage Results" MODIFIED="1713814197538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/nibblerProject$MinHeap.coverage" NAME="MinHeap Coverage Results" MODIFIED="1713285588447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/FastFoodSorter$RestaurantMap.coverage" NAME="RestaurantMap Coverage Results" MODIFIED="1713660877477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
     <SUITE FILE_PATH="coverage/FastFoodDeconstructor$main.coverage" NAME="main Coverage Results" MODIFIED="1713557439366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
