@@ -45,13 +45,28 @@
           <li>Hash Map</li>
         </ul>
       </div>
-      <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
+<!--        <form id="search-form" action="/process_input2" method="POST">-->
+            <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+<!--        </form>-->
+        <script>
+    // Add an event listener to the magnifying glass button
+    document.getElementById("magnifying-glass").addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
+        // Get the selected category
+        const selectedCategory = document.querySelector('.selected').innerText;
+
+        // Retrieve all items in the selected category
+        const itemsInCategory = restaurant_cat_map.filter(pair => pair[0] === selectedCategory)[0][1];
+
+        // Display the items (for demonstration purposes, you can adjust this part)
+        alert(`Items in ${selectedCategory}: ${itemsInCategory.join(', ')}`);
+    });
+</script>
+    </div>
     <script>
         // get all dropdowns
         const dropdowns = document.querySelectorAll('.dropdown');
-
         // loop through all dropdown elements
         dropdowns.forEach(dropdown => {
             // get inner elements from each dropdonw
@@ -89,32 +104,26 @@
                     });
                     // add active class to clicked option element
                     option.classList.add('active');
+                    // Inside the event listener for sorting selection
+                    const selectedSortingInput = document.getElementById("selectedSorting");
+                    selectedSortingInput.value = selected.innerText; // Update the value of the hidden input field
                 });
             });
         });
-    </script>
+        // Inside the event listener for sorting selection
+        const sortingOptions = document.querySelectorAll('.menu.sort li');
+        sortingOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Update the value of the hidden input field for sorting
+                const selectedSortingInput = document.getElementById("selectedSorting");
+                selectedSortingInput.value = option.innerText;
+            });
+        });
 
+    </script>
     <a href="page3.html">click me!</a>
-
-        </script>
-        <div id="cat"></div>
-
+    <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
-    <script>
-        // List of image URLs
-        const images = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
-
-        // Initialize index to 0
-        let index = 0;
-        // Function to change image
-        function changeImage() {
-            // Update src attribute with the next image URL
-            document.getElementById("catAnimation").src = images[index];
-            index = (index + 1) % images.length;
-        }
-        // Call changeImage function every second
-        setInterval(changeImage, 800);
-    </script>
-
+    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 </body>
 </html>

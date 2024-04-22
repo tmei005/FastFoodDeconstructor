@@ -13,18 +13,17 @@
     <p class="page-name">Restaurant Selection</p>
         <div class="search-box">
     <!-- HTML form -->
-<form id="search-form" action="/process_input" method="POST">
-    <div class="row">
-        <input type="text" id="input-box" name="restaurant" placeholder="Search a restaurant" autocomplete="off">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-</form>
+        <form id="search-form" action="/process_input" method="POST">
+            <div class="row">
+                <input type="text" id="input-box" name="restaurant" placeholder="Search a restaurant" autocomplete="off">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
             <div class="result-box"></div>
     <script>
         const restaurants_list= JSON.parse('{{restaurants_list | tojson | safe}}');
     </script>
     <script src="{{ url_for('static', filename='handleSearch.js') }}"></script>
-
         <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
