@@ -1,3 +1,6 @@
+/* ------------------- OVERALL STYLES ------------------- */
+
+/*default setting for all*/
 *{
     margin: 0;
     padding: 0;
@@ -5,10 +8,12 @@
     box-sizing: border-box;
 }
 
+/*webpage background color*/
 body{
     background: #262a2f;
 }
 
+/*webpage title*/
 h1{
     margin: 100px 100px 10px;
     font-size: 75px;
@@ -16,27 +21,27 @@ h1{
     color: #F2F2F2;
 }
 
+/*page name*/
 .page-name{
     font-size: 50px;
     text-align: center;
     color: #ADADAD;
 }
 
-.restaurant-selection-box{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+/*cat animation*/
+.cat-image {
+    position: fixed;
+    bottom: -2%;
+    left: 92.8%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 200px;
+    height: auto;
 }
 
-.restaurant-selection {
-    font-size: 30px;
-    color: #F2F2F2;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 3px solid white;
-    background: #565F6B;
-}
+/* ------------------- PAGE1 STYLES ------------------- */
 
+/*entire search box div*/
 .search-box{
     width: 600px;
     background: #4D5A6B;
@@ -46,6 +51,11 @@ h1{
     font-size: 20px
 }
 
+.search-box:hover {
+    background: #6C7D92;
+}
+
+/*search box top typing area*/
 .row{
     display: flex;
     align-items: center;
@@ -53,10 +63,12 @@ h1{
     border-radius: 5px;
 }
 
-.search-box:hover {
-    background: #6C7D92;
+/*default search placeholder*/
+::placeholder {
+    color: #F2F2F2;
 }
 
+/*search box input values*/
 input{
     flex: 1;
     height: 50px;
@@ -67,6 +79,7 @@ input{
     color: #F2F2F2;
 }
 
+/*search button*/
 button{
     background: transparent;
     border: 0;
@@ -80,15 +93,13 @@ button .fa-solid {
     cursor: pointer;
 }
 
-::placeholder {
-    color: #F2F2F2;
-}
-
+/*result box container*/
 .result-box ul{
     border-top: 3px solid #525F6F;
     padding: 15px 10px;
 }
 
+/*result box fields*/
 .result-box ul li {
     list-style: none;
     border-radius: 3px;
@@ -101,16 +112,27 @@ button .fa-solid {
     background: #4E5A6A;
 }
 
-.cat-image {
-    position: fixed;
-    bottom: -2%;
-    left: 92.8%;
-    transform: translateX(-50%);
-    z-index: -1;
-    width: 200px;
-    height: auto;
+
+/* ------------------- PAGE2 STYLES ------------------- */
+
+/*restaurant selection outer div*/
+.restaurant-selection-box{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
+/*restaurant selection actual text*/
+.restaurant-selection {
+    font-size: 30px;
+    color: #F2F2F2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 3px solid white;
+    background: #565F6B;
+}
+
+/*dropdown container*/
 .dropdown-div {
     display: flex;
     justify-content: center;
@@ -119,17 +141,19 @@ button .fa-solid {
     font-size: 20px;
 }
 
+/*overall dropdown (both)*/
 .dropdown * {
     width: 323px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
+/*sorting algorithm dropdown*/
 .sort * {
     width: 187px;
 }
 
-
+/*selected option displayed*/
 .select {
     background: #4D5A6B;
     color: #F2F2F2;
@@ -145,20 +169,18 @@ button .fa-solid {
     transition: background 0.3s;
 }
 
+/*selected option displayed glow effect*/
 .select-clicked {
     border: 3px #8795AA solid;
     box-shadow: 0 0 0.8em #8795AA;
 }
 
+/*hover effect over dropdown menu*/
 .select:hover {
     background: #596679;
 }
 
-.disable-hover .select:hover {
-    background: #4E5A6A;
-    cursor: auto;
-}
-
+/*dropdown caret*/
 .caret {
     width: 0;
     height: 0;
@@ -168,10 +190,12 @@ button .fa-solid {
     transition: 0.3s;
 }
 
+/*dropdown caret animation*/
 .caret-rotate {
     transform: rotate(180deg);
 }
 
+/*availble dropdown options container*/
 .menu {
     list-style: none;
     margin-top: 0.5em;
@@ -187,6 +211,13 @@ button .fa-solid {
     z-index: 1;
 }
 
+/*available dropdown options opened*/
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+/*availble dropdown options*/
 .menu li {
     width: 301px;
     height: 50px;
@@ -196,6 +227,7 @@ button .fa-solid {
     cursor: pointer;
 }
 
+/*availble dropdown options for sorting algorithms*/
 .sort li {
     width: 164px;
     height: 50px;
@@ -205,14 +237,17 @@ button .fa-solid {
     cursor: pointer;
 }
 
+/*hover effect over available dropdown options*/
 .menu li:hover {
     background: #4E5A6A;
 }
 
+/*background color for selected option*/
 .active {
     background: #3C424B;
 }
 
+/*button to load page 2.5*/
 .page2-button {
     background-color: #4E5A6A;
     padding: 0.65em;
@@ -225,20 +260,18 @@ button .fa-solid {
     cursor: pointer;
 }
 
+/*hover effect for button*/
 .page2-button:hover {
     background-color: #586679;
 }
 
+/*clicked effect for button*/
 .page2-button:active, .page2-button:focus{
     background-color: #465160;
     border: 2px #465160 solid;
 }
 
-.page2-button.disabled:hover, .page2-button.disabled:active, .page2-button.disabled:focus {
-    background-color: #4E5A6A;
-    cursor: default;
-}
-
+/*sorting time result*/
 .sorting-time {
     display: flex;
     justify-content: center;
@@ -248,12 +281,28 @@ button .fa-solid {
     font-style: italic;
 }
 
+/* ------------------- PAGE2.5 STYLES ------------------- */
+
+/*hover effect disabled on dropdowns for page 2.5*/
+.disable-hover .select:hover {
+    background: #4E5A6A;
+    cursor: auto;
+}
+
+/*all effects disabled on button for page 2.5*/
+.page2-button.disabled:hover, .page2-button.disabled:active, .page2-button.disabled:focus {
+    background-color: #4E5A6A;
+    cursor: default;
+}
+
+/*food menu display container*/
 .category-div-outer {
     margin: 2.5em;
     display: flex;
     justify-content: center;
 }
 
+/*food menu display container*/
 .category-div-inner {
     display: flex;
     justify-content: left;
@@ -264,6 +313,7 @@ button .fa-solid {
     border-radius: 0.5em;
 }
 
+/*food menu display*/
 .category-div-inner ul li {
     list-style: none;
     padding: 10px 10px 10px 10px;
@@ -279,12 +329,9 @@ button .fa-solid {
     background: #8094AD;
 }
 
+/* ------------------- PAGE3 STYLES ------------------- */
 
-.menu-open {
-    display: block;
-    opacity: 1;
-}
-
+/*overall category breakdown container*/
 .macro-div {
     background: #6C7D92;
     width: 625px;
@@ -296,6 +343,7 @@ button .fa-solid {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/*item name*/
 .macro-div1{
     height: auto;
     padding-top: 15px;
@@ -305,6 +353,7 @@ button .fa-solid {
     color: #F2F2F2;
 }
 
+/*item description*/
 .macro-div2{
     width: 600px;
     height: auto;
@@ -316,6 +365,7 @@ button .fa-solid {
     position: relative;
 }
 
+/*divider between identification and macro info*/
 .divider {
     position: absolute;
     left: 50%;
@@ -325,13 +375,21 @@ button .fa-solid {
     transform: translateX(-50%);
 }
 
-/*Overall box for both the left and right box*/
+/*overall container for macro info & pie chart*/
 .macro-div3{
     height: auto;
     display: flex;
     margin-top: 15px;
 }
 
+/*outer container for macros*/
+.macro-div5{
+    width: 35%;
+    height: auto;
+    padding: 15px 0px 15px 15px;
+}
+
+/*macro text*/
 .macro-text {
     margin-bottom: 2px;
     margin-left: 5px;
@@ -340,6 +398,7 @@ button .fa-solid {
     size: 8px;
 }
 
+/*outer container for pie chart*/
 .macro-div4{
     width: 65%;
     height: auto;
@@ -347,12 +406,8 @@ button .fa-solid {
     margin-top: 40px;
 }
 
+/*inner container for pie chart*/
 .pie-chart {
     justify-content: center;
 }
 
-.macro-div5{
-    width: 35%;
-    height: auto;
-    padding: 15px 0px 15px 15px;
-}
