@@ -253,10 +253,16 @@ button .fa-solid {
 
 .macro-div1{
     height: auto;
+        padding-top: 10px;
+    padding-left: 15px;
+
 }
 
 .macro-div2{
     height: auto;
+    border-bottom: solid;
+        padding-left: 10px;
+
 }
 /*Overall box for both the left and right box*/
 .macro-div3{
@@ -264,7 +270,7 @@ button .fa-solid {
 }
 
 .macro-item-name{
-    padding: 20px;
+    font-size: 25px;
     color: black;
     justify-content: left;
 }
@@ -276,20 +282,22 @@ button .fa-solid {
 }
 /*Left box that shows the pi chart*/
 .macro-div4{
-    width: 50%;
+    width: 35%;
     height: auto;
     float: left;
-    padding: 50px;
     background: white;
     justify-content: center;
+    margin-top: 70px;
 }
 
 /*Right box that shows the macros*/
 .macro-div5{
     float: right;
-    width: 50%;
+    width: 65%;
     height: auto;
     padding: 20px;
+    border-left: solid;
+
 }
 /*.macro-inner {*/
 /*    background-color: black;*/
