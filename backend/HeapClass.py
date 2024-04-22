@@ -1,5 +1,6 @@
 import pandas as pd
 from Node import MenuItem
+import time
 class Heap:
     def __init__(self, restaurant, category):
         self.heapArr = []
@@ -14,7 +15,6 @@ class Heap:
 
         if parent >= 0 and self.heapArr[parent].name > self.heapArr[child].name:
             self.heapArr[parent], self.heapArr[child] = self.heapArr[child], self.heapArr[parent]
-
             self.heapifyUp(parent)
 
     def heapifyDown(self, index = 0):
@@ -35,6 +35,7 @@ class Heap:
         dataset_name = "ms_annual_data_2022.xlsx"
         df = pd.read_excel(dataset_name)
         for index, row in df.iterrows():
+
             name = row['item_name']
             category = row['food_category']
             restaurant = row['restaurant']
@@ -57,6 +58,7 @@ class Heap:
                 self.heapSize += 1
                 self.heapifyUp(self.heapSize-1)
 
+
     def extractMin(self):
         if self.heapSize == 0:
             return None
@@ -66,11 +68,12 @@ class Heap:
         self.heapArr.pop()
         if self.heapSize > 0:
             self.heapifyDown(0)
+
         return minNum
 
     def getHeap(self):
         self.insertData()
-        a = []
+        arr = []
         for i in range(self.heapSize):
-            a.append(self.extractMin())
-        return a
+            arr.append(self.extractMin())
+        return arr
