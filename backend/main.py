@@ -7,6 +7,8 @@ import pandas as pd
 import sys
 
 if __name__ == "__main__":
+    hashmap = HashMapClass.HashMap("Longhorn Steakhouse","Toppings & Ingredients")
+    mcdonaldsburgers = hashmap.getMap()
+    for burgers in mcdonaldsburgers:
+        print(burgers.name)
 
-    # Define the list of restaurants
-    restaurantsList = ["Applebee's", "Arby's", "McDonald's"]

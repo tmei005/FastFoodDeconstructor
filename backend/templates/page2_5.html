@@ -17,49 +17,47 @@
     <div class="dropdown-div">
       <div class="dropdown">
         <div class="select">
-          <span class="selected">Appetizer's & Sides</span>
+          <span class="selected">{{ selected_category }}</span>
           <div class="caret"></div>
         </div>
           <div class="menu" id="restaurantCategories"></div>
-          <script>
-            const restaurant_cat= JSON.parse('{{restaurant_cat | tojson | safe}}');
-            // Select the menu element
-            const menu = document.getElementById("restaurantCategories");
-            // Clear the existing HTML content
-            menu.innerHTML = "";
-            // Loop through the categories and create list items
-            restaurant_cat.forEach(category => {
-                const li = document.createElement("li");
-                li.textContent = category;
-                menu.appendChild(li);
-            });
-          </script>
       </div>
       <div class="dropdown sort">
         <div class="select">
-          <span class="selected">Heap</span>
-          <div class="caret"></div>
-        </div>
-        <ul class="menu sort">
-          <li class="active">Heap</li>
-          <li>Hash Map</li>
+          <span class="selected">{{ selected_sorting }}</span>
+            <div class="caret"></div>
+      </div>
+          <ul class="menu sort">
         </ul>
       </div>
-        <form id="search-form" action="/get_menu" method="POST">
-            <input type="hidden" id="selected_category" name="selected_category">
-            <input type="hidden" id="selected_sorting" name="selected_sorting">
-            <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+          <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
-<!--    <div class="sorting-time">-->
-<!--      <p>Results: Sorted X [Category] in Y seconds.</p>-->
-<!--    </div>-->
-<!--    <div class="category-div-outer" id="categoryOuter" style="display: none;">>-->
-<!--        <div class="category-div-inner">-->
-<!--            <ul class="category-results" id="categoryResults" style="display: none;">-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="sorting-time">
+      <p>Results: Sorted {{ selected_category }} in {{ elapsed_time }} seconds.</p>
+    </div>
+    <div class="category-div-outer" id="categoryOuter">
+        <div class="category-div-inner">
+            <ul class="category-results" id="categoryResults">
+                <script>
+                // Parse the menu data from Flask into a JavaScript array
+                let menu_data = JSON.parse('{{ menu | tojson | safe }}');
+
+                // Get the category results element
+                const categoryResults = document.getElementById("categoryResults");
+
+                // Clear any existing content
+                categoryResults.innerHTML = "";
+
+                // Loop through each item in the menu_data and create list items for them
+                menu_data.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    categoryResults.appendChild(li);
+                });
+            </script>
+            </ul>
+        </div>
+    </div>
     <script>
         // Add an event listener to the magnifying glass button
         document.querySelector('.page2-button').addEventListener('click', function(event) {
@@ -143,40 +141,12 @@
 
         // category results background color change onclick
     </script>
-    <div id="cat"></div>
+    <a href="page3.html">click me!</a>
+            <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
         // List of image URLs
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
-<script>
-    // Function to set default selections for dropdown menus
-    function setDefaultSelections() {
-        // Select the default category for the first dropdown menu
-        const categoryMenu = document.querySelector('.dropdown .menu');
-        const categoryOptions = categoryMenu.querySelectorAll('li');
-        const selected_category = categoryOptions[0].textContent;
-        categoryOptions.forEach(option => {
-            if (option.textContent === selected_category) {
-                option.classList.add('active');
-                document.querySelector('.dropdown .selected').textContent = selected_category;
-            }
-        });
-
-        // Select the default sorting method for the second dropdown menu
-        const selected_sorting = "Heap"; // Change this to your desired default sorting method
-        const sortingMenu = document.querySelector('.dropdown.sort .menu');
-        const sortingOptions = sortingMenu.querySelectorAll('li');
-        sortingOptions.forEach(option => {
-            if (option.textContent === selected_sorting) {
-                option.classList.add('active');
-                document.querySelector('.dropdown.sort .selected').textContent = selected_sorting;
-            }
-        });
-    }
-
-    // Call the function to set default selections when the page loads
-    window.addEventListener('DOMContentLoaded', setDefaultSelections);
-</script>
 </body>
 </html>

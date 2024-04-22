@@ -16,12 +16,11 @@ restMap = RestaurantMap.RestaurantMap()
 def page1():
     restaurants = list(restMap.restaurant_categories.keys())
     restaurants = restaurants[:-1] # take out 'Nan'
-    print(restaurants)
     return render_template('page1.html', restaurants_list=restaurants)
 
 @app.route('/process_input', methods=['POST'])
 def process_input():
-    selected_restaurant = request.form.get('restaurant')
+    selected_restaurant = request.form.get('selectedRestaurant')
     session['selected_restaurant'] = selected_restaurant
     # You can do further processing here if needed
     return redirect('page2.html')
@@ -33,18 +32,33 @@ def page2():
     restaurant_cat = [pair[0] for pair in restaurant_cat_map]
     return render_template('page2.html', restaurant_cat=restaurant_cat, selected_restaurant=selected_restaurant)
 
-# @app.route('/process_input2', methods=['POST'])
-# def process_input2():
-#     selected_category = request.form.get('selected_category')
-#     selected_sorting = request.form.get('selected_sorting')
-#     # Further processing based on the selected category and sorting method
-#     # For example:
-#     print("Selected category:", selected_category)
-#     print("Selected sorting method:", selected_sorting)
-#     # Redirect to the homepage or another appropriate page
-#     return redirect('page1.html')
+@app.route('/get_menu', methods=['POST'])
+def get_menu():
+    print("get menu")
+    selected_category = request.form.get('selected_category')
+    selected_sorting = request.form.get('selected_sorting')
+    session['selected_category'] = selected_category
+    session['selected_sorting'] = selected_sorting
+    print("Selected category:", selected_category)
+    print("Selected sorting method:", selected_sorting)
+    start_time = time.time()
+    if (selected_sorting == "Heap"):
+        heap = HeapClass.Heap(session.get('selected_restaurant'), selected_category)
+        menu_items = heap.getHeap()
+    else:
+        hashMap = HashMapClass.HashMap(session.get('selected_restaurant'), selected_category)
+        hashMap.insertData()
+        menu_items = hashMap.getMap()
+    menu = [menuItem.name for menuItem in menu_items]
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    elapsed_time = f"{elapsed_time:.2f}"  # Output: "12345.00"
+    # Redirect to the homepage or another appropriate page
+    return render_template('page2_5.html', selected_sorting=session.get('selected_sorting'), selected_category=session.get('selected_category'), selected_restaurant=session.get('selected_restaurant'), menu=menu, elapsed_time=elapsed_time)
+
 @app.route('/page3.html')
 def page3():
+
     return render_template('page3.html')
 
 if __name__ == '__main__':
