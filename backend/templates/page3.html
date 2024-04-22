@@ -25,6 +25,7 @@
         </div>
         <div class="macro-div3">
             <div class="macro-div5">
+<!--                Format everything to one decimal place-->
                 <p class="macro-text">Calories: <script>document.write(parseFloat("{{ item_cal }}").toFixed(1));</script></p>
                 <p class="macro-text">Protein: <script>document.write(parseFloat("{{ item_protein }}").toFixed(1));</script></p>
                 <p class="macro-text">Carbohydrates: <script>document.write(parseFloat("{{ item_carbs }}").toFixed(1));</script></p>
@@ -45,10 +46,10 @@
             </div>
         </div>
     </div>
+<!--    Cat animation-->
  <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
-        // List of image URLs
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
     <script src="{{ url_for('static', filename='cat.js') }}"></script>

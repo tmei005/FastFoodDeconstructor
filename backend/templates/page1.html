@@ -50,10 +50,10 @@
             document.getElementById("selectedRestaurant").value = list.innerHTML;
         }
     </script>
-    <div id="cat"></div>
+    <!--    Cat animation-->
+ <div id="cat"></div>
     <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
     <script>
-        // List of image URLs
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
     <script src="{{ url_for('static', filename='cat.js') }}"></script>
