@@ -18,3 +18,4 @@ class MenuItem:
         self.sugar = sugar
         self.protein = protein
         self.next = None # Used for seperate chaining in hashmap
+        # dds

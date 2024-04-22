@@ -39,13 +39,12 @@ def get_menu():
     selected_sorting = request.form.get('selected_sorting')
     session['selected_category'] = selected_category
     session['selected_sorting'] = selected_sorting
-    print("Selected category:", selected_category)
-    print("Selected sorting method:", selected_sorting)
     start_time = time.time()
     if (selected_sorting == "Heap"):
         heap = HeapClass.Heap(session.get('selected_restaurant'), selected_category)
         menu_items = heap.getHeap()
     else:
+        print("poop")
         hashMap = HashMapClass.HashMap(session.get('selected_restaurant'), selected_category)
         hashMap.insertData()
         menu_items = hashMap.getMap()
