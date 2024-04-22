@@ -263,9 +263,9 @@ button .fa-solid {
 
 .macro-div2{
     height: auto;
-    border-bottom: solid;
-        border-color: #242a32;
-        padding-left: 10px;
+    border-bottom: 6px solid;
+    border-color: #242a32;
+    padding-left: 10px;
 
 }
 /*Overall box for both the left and right box*/
@@ -288,7 +288,7 @@ button .fa-solid {
 .macro-text {
     margin-bottom: 2px;
     margin-left: 5px;
-    color: #F2F2F2;
+        color: #F2F2F2;
     height:auto;
 }
 /*Left box that shows the pi chart*/
@@ -306,7 +306,7 @@ button .fa-solid {
     width: 35%;
     height: auto;
     padding: 20px;
-    border-left: solid;
+    border-left: 4px solid;
     border-color: #242a32;
 
 }
