@@ -267,13 +267,11 @@ button .fa-solid {
     color: #3D4653;
     width: auto;
     min-width: 580px;
-    border: ;
 }
 
 .category-div-inner ul li:hover {
     background: #8094AD;
 }
-
 
 .menu-open {
     display: block;
