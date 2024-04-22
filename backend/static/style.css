@@ -291,7 +291,7 @@ button .fa-solid {
 
 .macro-div {
     background: #6C7D92;
-    width: 600px;
+    width: 625px;
     height: auto;
     box-sizing: border-box;
     margin: 45px auto;
@@ -373,7 +373,7 @@ button .fa-solid {
     margin-left: 5px;
     color: #262A30;
     height:auto;
-    size: 10px;
+    size: 8px;
 }
 /*Left box that shows the pi chart*/
 /*.macro-div4{*/
@@ -386,7 +386,7 @@ button .fa-solid {
 /*}*/
 
 .macro-div4{
-    width: 70%;
+    width: 65%;
     height: auto;
     justify-content: center;
     margin-top: 40px;
@@ -408,7 +408,7 @@ button .fa-solid {
 /*}*/
 
 .macro-div5{
-    width: 30%;
+    width: 35%;
     height: auto;
     padding: 15px 0px 15px 15px;
 }
