@@ -38,7 +38,7 @@
     <div class="category-div-outer" id="categoryOuter">
         <div class="category-div-inner">
             <ul class="category-results" id="categoryResults">
-                <!-- Add unique IDs to each list item -->
+                <!-- Add items to menu -->
                 {% for item in menu %}
                     <li id="item{{ loop.index }}" onclick="item_selected('{{ item }}')">{{ item }}</li>
                 {% endfor %}

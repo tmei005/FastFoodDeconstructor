@@ -75,7 +75,7 @@ def item_select():
     selected_item = request.form.get('selected_item')
     session['selected_item'] = selected_item
     print(session.get('selected_datastructure'))
-    if session.get('selected_datastructure' == "Heap"): # for heap
+    if session.get('selected_datastructure') == "Heap":  # for heap
         menu_items= session.get('menu_items', [])
         for i in menu_items:
             if i.name == selected_item:

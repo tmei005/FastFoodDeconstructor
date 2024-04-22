@@ -25,16 +25,16 @@
         </div>
         <div class="macro-div3">
             <div class="macro-div5">
-<!--                Format everything to one decimal place-->
-                <p class="macro-text">Calories: <script>document.write(parseFloat("{{ item_cal }}").toFixed(1));</script></p>
-                <p class="macro-text">Protein: <script>document.write(parseFloat("{{ item_protein }}").toFixed(1));</script></p>
-                <p class="macro-text">Carbohydrates: <script>document.write(parseFloat("{{ item_carbs }}").toFixed(1));</script></p>
-                <p class="macro-text">Total Fat: <script>document.write(parseFloat("{{ item_fat }}").toFixed(1));</script></p>
-                <p class="macro-text">Saturated Fat: <script>document.write(parseFloat("{{ item_sfat }}").toFixed(1));</script></p>
-                <p class="macro-text">Dietary Fiber: <script>document.write(parseFloat("{{ item_fiber }}").toFixed(1));</script></p>
-                <p class="macro-text">Cholesterol: <script>document.write(parseFloat("{{ item_chol }}").toFixed(1));</script></p>
-                <p class="macro-text">Sodium: <script>document.write(parseFloat("{{ item_sodium }}").toFixed(1));</script></p>
-                <p class="macro-text">Sugar: <script>document.write(parseFloat("{{ item_sugar }}").toFixed(1));</script></p>
+    <!-- Format everything to one decimal place -->
+                <p class="macro-text">Calories: <script>document.write((parseFloat("{{ item_cal }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Protein: <script>document.write((parseFloat("{{ item_protein }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Carbohydrates: <script>document.write((parseFloat("{{ item_carbs }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Total Fat: <script>document.write((parseFloat("{{ item_fat }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Saturated Fat: <script>document.write((parseFloat("{{ item_sfat }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Dietary Fiber: <script>document.write((parseFloat("{{ item_fiber }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Cholesterol: <script>document.write((parseFloat("{{ item_chol }}").toFixed(1)) + 'mg');</script></p>
+                <p class="macro-text">Sodium: <script>document.write((parseFloat("{{ item_sodium }}").toFixed(1)) + 'g');</script></p>
+                <p class="macro-text">Sugar: <script>document.write((parseFloat("{{ item_sugar }}").toFixed(1)) + 'g');</script></p>
             </div>
             <div class = "macro-div4">
                 <div class="pie-chart">
