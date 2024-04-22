@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Fast Food Deconstructor</title>
-
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
+    <style>
+        /*.macro-div4 {*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*    height: 100%; !* Ensure the container takes up the full height *!*/
+        /*}*/
+
+    </style>
 </head>
 <body>
     <h1>FAST FOOD DECONSTRUCTOR</h1>
@@ -36,15 +44,13 @@
                 <p class="macro-text">Sodium: <script>document.write((parseFloat("{{ item_sodium }}").toFixed(1)) + 'g');</script></p>
                 <p class="macro-text">Sugar: <script>document.write((parseFloat("{{ item_sugar }}").toFixed(1)) + 'g');</script></p>
             </div>
-            <div class = "macro-div4">
+            <div class="macro-div4">
                 <div class="pie-chart">
-                    <script
-                        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-                    </script>
-                    <canvas id = "myChart"> </canvas>
-                </div>
-            </div>
-        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <canvas id="myChart"></canvas>
+        <!-- Cat image -->
+            <img id="confusedCat" src="../static/Images/confused_cat.png" alt="confused cat" class="confused-cat">
+    </div>
     </div>
 <!--    Cat animation-->
  <div id="cat"></div>
@@ -60,62 +66,75 @@
         let item_protein = parseFloat("{{ item_protein }}");
         let total_grams = item_fat + item_carbs + item_protein
         let itemData = [item_carbs/total_grams.toFixed(1), item_fat/total_grams.toFixed(1), item_protein/total_grams.toFixed(1)];
-        const data = {
-            labels: labels,
-            datasets: [{
-                data: itemData, // Convert float to percentage string
-                backgroundColor: [
-                    '#475B72',
-                    '#3A4B5F',
-                    '#333333'
-                ],
-                borderWidth: 0,
-                hoverOffset: 4
-            }]
-        };
-        const backgroundColorPlugin = {
-            id: 'customCanvasBackgroundColor',
-            beforeDraw: (chart) => {
-                const ctx = chart.ctx;
-                ctx.fillStyle = '#6C7D92';
-                ctx.fillRect(0, 0, chart.width, chart.height);
-            }
-        };
-        const config = {
-            type: 'doughnut',
-            data: data,
-            plugins: [backgroundColorPlugin],
-            options: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
+       if (total_grams === 0) {
+            console.log("all 0")
+            // All values are 0, replace the chart canvas with a single photo
+            const chartCanvas = document.getElementById('myChart');
+            const photoElement = document.createElement('img');
+            photoElement.src = "../static/Images/confused_cat.png"; // Provide the path to your image
+            // chartCanvas.parentNode.replaceChild(photoElement, chartCanvas);
+            // Show cat image
+            document.getElementById('confusedCat').style.display = 'block';
+        } else {
+            const data = {
+                labels: labels,
+                datasets: [{
+                    data: itemData, // Convert float to percentage string
+                    backgroundColor: [
+                        '#475B72',
+                        '#3A4B5F',
+                        '#333333'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            };
+            const backgroundColorPlugin = {
+                id: 'customCanvasBackgroundColor',
+                beforeDraw: (chart) => {
+                    const ctx = chart.ctx;
+                    ctx.fillStyle = '#6C7D92';
+                    ctx.fillRect(0, 0, chart.width, chart.height);
+                }
+            };
+            const config = {
+                type: 'doughnut',
+                data: data,
+                plugins: [backgroundColorPlugin],
+                options: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
 
                             padding: 30,
                             fontColor: 'rgb(255,255,255)',
                             fontFamily: "Poppins",
-                    }
-                },
-                chartArea: {
-                  backgroundColor: "rgba(0,0,0)"
-                },
-                // When hovering a section of the pie chart, show the percentage of the macro
-                tooltips: {
-                callbacks: {
-                    label: function (tooltipItem, data) {
-                        let dataset = data.datasets[tooltipItem.datasetIndex];
-                        let currentValue = dataset.data[tooltipItem.index];
-                        let label = data.labels[tooltipItem.index];
-                        return `${label}: ${(currentValue * 100).toFixed(1)}%`;
+                        }
+                    },
+                    chartArea: {
+                        backgroundColor: "rgba(0,0,0)"
+                    },
+                    // When hovering a section of the pie chart, show the percentage of the macro
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                let dataset = data.datasets[tooltipItem.datasetIndex];
+                                let currentValue = dataset.data[tooltipItem.index];
+                                let label = data.labels[tooltipItem.index];
+                                return `${label}: ${(currentValue * 100).toFixed(1)}%`;
+                            }
+                        }
                     }
                 }
-            }
-            }
-        };
-        const chart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+            };
+            const chart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        }
     </script>
+        </div>
+    </div>
 </body>
 </html>

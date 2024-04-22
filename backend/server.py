@@ -5,15 +5,19 @@ import HashMapClass
 import HeapClass
 import os
 
+
 def generate_secret_key():
     """
     Generate a secret key for Flask application.
     """
     return os.urandom(24).hex()
 
+
 app = Flask(__name__)
 app.secret_key = generate_secret_key()
 restMap = RestaurantMap.RestaurantMap()
+
+
 # hashMap = None  # Define hashMap as a global variable
 
 
@@ -41,6 +45,7 @@ def page2():
     restaurant_cat = [pair[0] for pair in restaurant_cat_map]
     return render_template('page2.html', restaurant_cat=restaurant_cat, selected_restaurant=selected_restaurant)
 
+
 # Function to load menu items once category and data structure is selected
 @app.route('/get_menu', methods=['POST'])
 def get_menu():
@@ -51,12 +56,14 @@ def get_menu():
     session['selected_datastructure'] = selected_datastructure
     start_time = time.time()
     global hashMap  # Declare hashMap as global here
-    if (selected_datastructure == "Heap"):
+    if selected_datastructure == "Heap":
+        print("selected heap")
         heap = HeapClass.Heap(session.get('selected_restaurant'), selected_category)
         menu_items = heap.getHeap()
         menu_items_dict = [item.to_dict() for item in menu_items]
         session['menu_items'] = menu_items_dict
     else:
+        print("selected hashmap")
         hashMap = HashMapClass.HashMap(session.get('selected_restaurant'), selected_category)
         hashMap.insertData()
         menu_items = hashMap.getMap()
@@ -74,12 +81,16 @@ def get_menu():
 def item_select():
     selected_item = request.form.get('selected_item')
     session['selected_item'] = selected_item
-    if session.get('selected_datastructure') == "Heap":  # for heap
+    print(selected_item)
+    dataStructure = session.get('selected_datastructure')
+    if dataStructure == "Heap":  # for heap
+        print(dataStructure)
         menu_items = session.get('menu_items', [])
         for i in menu_items:
             if i.get('name') == selected_item:
                 item = i
     else:
+        print(dataStructure)
         global hashMap  # access hashMap
         item = hashMap.search_by_name(selected_item)  # for HashMap
     if isinstance(item, dict):
@@ -102,6 +113,7 @@ def item_select():
                                item_sfat=item.saturated_fat,
                                item_fiber=item.dietary_fiber, item_fat=item.total_fat, item_chol=item.cholesterol,
                                item_sodium=item.sodium, item_sugar=item.sugar)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
