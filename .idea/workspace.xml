@@ -96,7 +96,7 @@
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.server">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="nibblerProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.server" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
