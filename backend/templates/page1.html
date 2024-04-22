@@ -15,7 +15,7 @@
     <!-- HTML form -->
         <form id="search-form" action="/process_input" method="POST">
             <div class="row">
-                <input type="text" id="input-box" name="restaurant" placeholder="Search a restaurant" autocomplete="off">
+                <input type="text" id="input-box" name="selectedRestaurant" placeholder="Search a restaurant" autocomplete="off">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
@@ -30,6 +30,5 @@
         // List of image URLs
         const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
     </script>
-    <script src="{{ url_for('static', filename='cat.js') }}"></script>
 </body>
 </html>

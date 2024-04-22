@@ -35,12 +35,10 @@ class Heap:
         dataset_name = "ms_annual_data_2022.xlsx"
         df = pd.read_excel(dataset_name)
         for index, row in df.iterrows():
-
             name = row['item_name']
             category = row['food_category']
             restaurant = row['restaurant']
             description = row['item_description']
-            serving_size = row['serving_size']
             calories = row['calories']
             total_fat = row['total_fat']
             saturated_fat = row['saturated_fat']
@@ -54,7 +52,7 @@ class Heap:
 
             if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
                 self.heapArr.append(
-                    MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
+                    MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
                              trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
                 self.heapSize += 1
                 self.heapifyUp(self.heapSize-1)
@@ -68,10 +66,11 @@ class Heap:
         self.heapArr.pop()
         if self.heapSize > 0:
             self.heapifyDown(0)
-
         return minNum
 
-    def printHeap(self):
+    def getHeap(self):
         self.insertData()
+        a = []
         for i in range(self.heapSize):
-            print(self.extractMin().name)
+            a.append(self.extractMin())
+        return a

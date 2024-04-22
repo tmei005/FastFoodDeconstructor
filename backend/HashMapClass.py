@@ -3,17 +3,18 @@ from Node import MenuItem
 import pandas as pd
 
 class HashMap:
-    def __init__(self):
-        self.capacity = 1000
+    def __init__(self, restaurant, category):
+        self.capacity = 50
         self.size = 0
         self.load_factor = .75
         self.map = [None] * self.capacity
+        self.restaurant = restaurant
+        self.category = category
+        self.insertData()
 
     # function to get hash value using ASCII sum of  restaurant name and category
     def _hash(self, menu_item):
-        category = str(menu_item.category)
-        restaurant = str(menu_item.restaurant)
-        ascii_sum = sum(ord(c) for c in category) + sum(ord(c) for c in restaurant)
+        ascii_sum = sum(ord(c) for c in str(menu_item.name))
         return ascii_sum % self.capacity
 
     # If load factor > 0.75 then rehash
@@ -60,17 +61,14 @@ class HashMap:
             current.next = menu_item
 
     # Function to insert all items from Excel sheet
-    def insertAll(self):
+    def insertData(self):
         dataset_name = "ms_annual_data_2022.xlsx"
-        # Read the Excel file
         df = pd.read_excel(dataset_name)
-        # Accessing data
         for index, row in df.iterrows():
             name = row['item_name']
             category = row['food_category']
             restaurant = row['restaurant']
             description = row['item_description']
-            serving_size = row['serving_size']
             calories = row['calories']
             total_fat = row['total_fat']
             saturated_fat = row['saturated_fat']
@@ -81,37 +79,19 @@ class HashMap:
             dietary_fiber = row['dietary_fiber']
             sugar = row['sugar']
             protein = row['protein']
-            self.insert(
-                MenuItem(name, category, restaurant, description, serving_size, calories, total_fat, saturated_fat,
+            # restaurant_found = "false"
+            if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
+                # restaurant_found = "true"
+                self.insert(
+                MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
                      trans_fat, cholesterol, sodium, carbs, dietary_fiber, sugar, protein))
+            # elif restaurant_found == "true":
+            #     return
 
-    # Search / retrieval function to return a vector of menu items that satisfy the parameters (category and restaurant)
-    def search(self, category, restaurant):
-        index = (sum(ord(c) for c in category) + sum(ord(c) for c in restaurant)) % self.capacity
-        current = self.map[index]
-        found_items = []
-        # Loop through all items at that index
-        while current:
-            if current.category == category and current.restaurant == restaurant:
-                found_items.append(current)
-            current = current.next
-        return found_items
-    # Function to print map, just for testing
-    def print_map(self):
-        for i, item in enumerate(self.map):
-            print(f"Index {i}:")
-            current = item
-            while current:
-                print(f"    {current.name} ({current.category}) - {current.restaurant}")
-                current = current.next
-            print()
-
-        # Function to print restaurant categories for a given restaurant
-    def print_restaurant_categories(self, restaurant):
-        if restaurant in self.restaurant_categories:
-            categories = self.restaurant_categories[restaurant]
-            print(f"Categories offered by {restaurant}:")
-            for category in categories:
-                print(f"    {category}")
-        else:
-            print(f"No categories found for {restaurant}")
+    # Function to get map
+    def getMap(self):
+        a = []
+        for item in self.map:
+            if item is not None:
+                a.append(item)
+        return a
