@@ -411,18 +411,3 @@ button .fa-solid {
 /*    word-break: break-all;*/
 
 /*}*/
-
-  .container {
-    width: 300px; /* Set width as per your requirement */
-    position: relative; /* Required for absolute positioning of border */
-    padding-bottom: 200px; /* Add bottom padding to create space for the border */
-  }
-
-  .bottom-border {
-    position: absolute; /* Position the border absolutely */
-    bottom: 0; /* Align the border to the bottom */
-    left: 50%; /* Center align the border horizontally */
-    width: 200px; /* Set the width of the border */
-    border-bottom: 1px solid #ccc; /* Add bottom border */
-    transform: translateX(-50%); /* Adjust for center alignment */
-  }
