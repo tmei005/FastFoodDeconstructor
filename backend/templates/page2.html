@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
 </head>
+<head>
+</head>
 <body>
+    <!-- webpage title & subtitle -->
     <h1>FAST FOOD DECONSTRUCTOR</h1>
     <p class="page-name">Menu Item Selection</p>
+
+    <!-- restaurant selected from page1 -->
     <div class="restaurant-selection-box">
         <div class="restaurant-selection">{{selected_restaurant}}</div>
     </div>
+
+    <!-- overall dropdown div container -->
     <div class="dropdown-div">
+      <!-- food category dropdown -->
       <div class="dropdown">
+        <!-- selected food category -->
         <div class="select">
           <span class="selected">Appetizer's & Sides</span>
           <div class="caret"></div>
         </div>
+          <!-- front & back integration -->
           <div class="menu" id="restaurantCategories"></div>
           <script>
             const restaurant_cat= JSON.parse('{{restaurant_cat | tojson | safe}}');
@@ -35,7 +45,10 @@
             });
           </script>
       </div>
+
+      <!-- sorting algorithm dropdown -->
       <div class="dropdown sort">
+        <!-- selected sorting algorithm category -->
         <div class="select">
           <span class="selected">Heap</span>
           <div class="caret"></div>
@@ -50,7 +63,7 @@
             <input type="hidden" id="selected_datastructure" name="selected_datastructure">
             <button class="page2-button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-      </div>
+    </div>
     <script>
         // Add an event listener to the magnifying glass button
         document.querySelector('.page2-button').addEventListener('click', function(event) {
@@ -90,6 +103,7 @@
                 caret.classList.toggle('caret-rotate');
                 // add the open styles to the menu elements
                 menu.classList.toggle('menu-open');
+
             });
 
             // loop through all option elements

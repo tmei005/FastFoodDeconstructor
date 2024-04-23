@@ -8,55 +8,65 @@
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <script src="https://kit.fontawesome.com/4a79a0d316.js" crossorigin="anonymous"></script>
 </head>
+<head>
+</head>
 <body>
-<h1>FAST FOOD DECONSTRUCTOR</h1>
-<p class="page-name">Restaurant Selection</p>
-<div class="search-box">
-    <!-- To store selected restaurant -->
-    <form id="search-form" action="/process_input" method="POST">
-        <div class="row">
-            <input type="text" id="input-box" name="selectedRestaurant" placeholder="Search a restaurant"
-                   autocomplete="off">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </form>
-    <div class="result-box"></div>
-    <script>
-        const restaurants_list = JSON.parse('{{ restaurants_list | tojson | safe | replace("&", "&amp;") | escape }}');
-        const resultsBox = document.querySelector(".result-box");
-        const inputBox = document.getElementById("input-box");
-        inputBox.onkeyup = function () {
-            let result = [];
-            let input = inputBox.value.trim().toLowerCase();
-            if (input.length) {
-                result = restaurants_list.filter((keyword) => {
-                    return keyword.toLowerCase().startsWith(input);
+    <!-- webpage title & subtitle -->
+    <h1>FAST FOOD DECONSTRUCTOR</h1>
+    <p class="page-name">Restaurant Selection</p>
+
+    <!-- overall search box container -->
+    <div class="search-box"
+        <!-- To store selected restaurant -->
+        <form id="search-form" action="/process_input" method="POST">
+            <div class="row">
+                <input type="text" id="input-box" name="selectedRestaurant" placeholder="Search a restaurant"
+                       autocomplete="off">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
+
+        <!-- displayed result box -->
+        <div class="result-box"></div>
+
+        <!-- search box functionality -->
+        <script>
+            const restaurants_list = JSON.parse('{{ restaurants_list | tojson | safe | replace("&", "&amp;") | escape }}');
+            const resultsBox = document.querySelector(".result-box");
+            const inputBox = document.getElementById("input-box");
+            inputBox.onkeyup = function () {
+                let result = [];
+                let input = inputBox.value.trim().toLowerCase();
+                if (input.length) {
+                    result = restaurants_list.filter((keyword) => {
+                        return keyword.toLowerCase().startsWith(input);
+                    });
+                }
+                display(result);
+                if (!result.length) {
+                    resultsBox.innerHTML = '';
+                }
+            }
+            function display(result) {
+                const content = result.map((list) => {
+                    return "<li onclick=selectInput(this)>" + list + "</li>";
                 });
+                resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>"
             }
-            display(result);
-            if (!result.length) {
-                resultsBox.innerHTML = '';
+            function selectInput(list) {
+                inputBox.value = list.innerHTML
+                resultsBox.innerHTML = ''
+                document.getElementById("selectedRestaurant").value = list.innerHTML;
             }
-        }
-        function display(result) {
-            const content = result.map((list) => {
-                return "<li onclick=selectInput(this)>" + list + "</li>";
-            });
-            resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>"
-        }
-        function selectInput(list) {
-            inputBox.value = list.innerHTML
-            resultsBox.innerHTML = ''
-            document.getElementById("selectedRestaurant").value = list.innerHTML;
-        }
-    </script>
-    <!--    Cat animation-->
- <div id="cat"></div>
-    <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
-    <script>
-        const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
-    </script>
-    <script src="{{ url_for('static', filename='cat.js') }}"></script>
-</div>
+        </script>
+
+        <!-- Cat animation -->
+        <div id="cat"></div>
+        <img id="catAnimation" src="../static/Images/cat1.png" alt="cat burger" class="cat-image">
+        <script>
+            const catImages = ["{{ url_for('static', filename='Images/cat1.png') }}", "{{ url_for('static', filename='Images/cat2.png') }}", "{{ url_for('static', filename='Images/cat4.png') }}"];
+        </script>
+        <script src="{{ url_for('static', filename='cat.js') }}"></script>
+    </div>
 </body>
 </html>

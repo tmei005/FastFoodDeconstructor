@@ -8,6 +8,7 @@ class Heap:
         self.restaurant = restaurant
         self.category = category
 
+    # Recursively compares and swaps the child to parent to see if it's smaller or not to rearrange heap
     def heapifyUp(self, child):
         if child == 0:
             return
@@ -17,6 +18,7 @@ class Heap:
             self.heapArr[parent], self.heapArr[child] = self.heapArr[child], self.heapArr[parent]
             self.heapifyUp(parent)
 
+    # Recursively compares and swaps the parent to its children to see if it's smaller or not to rearrange heap
     def heapifyDown(self, index = 0):
 
         leftChild = 2 * index + 1
@@ -31,6 +33,7 @@ class Heap:
             self.heapArr[index], self.heapArr[smallerChild] = self.heapArr[smallerChild], self.heapArr[index]
             self.heapifyDown(smallerChild)
 
+    # Inserts MenuItems from Excel Sheet into heap based on specified restaurant and category
     def insertData(self):
         dataset_name = "ms_annual_data_2022.xlsx"
         df = pd.read_excel(dataset_name)
@@ -51,6 +54,7 @@ class Heap:
             sugar = row['sugar']
             protein = row['protein']
 
+            # Checks the dataset see if it's positioned at the selected restaurant and category and inserts it into the heap
             if row['restaurant'] == self.restaurant and row['food_category'] == self.category:
                 self.heapArr.append(
                     MenuItem(name, category, restaurant, description, calories, total_fat, saturated_fat,
@@ -58,7 +62,7 @@ class Heap:
                 self.heapSize += 1
                 self.heapifyUp(self.heapSize-1)
 
-
+    # Returns the top element in the heap and sorts the heap after extraction
     def extractMin(self):
         if self.heapSize == 0:
             return None
@@ -71,6 +75,7 @@ class Heap:
 
         return minNum
 
+    # Returns a list of the minheap of all the menuItems
     def getHeap(self):
         self.insertData()
         arr = []
